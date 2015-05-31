@@ -3,6 +3,7 @@ PATH
   specs:
     giveaways (0.0.1)
       rails (~> 4.2.1)
+      simple_form (~> 3.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -112,6 +113,9 @@ GEM
       rspec-mocks (~> 3.2.0)
       rspec-support (~> 3.2.0)
     rspec-support (3.2.2)
+    simple_form (3.1.0)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
     sprockets (3.1.0)
       rack (~> 1.0)
     sprockets-rails (2.3.1)
