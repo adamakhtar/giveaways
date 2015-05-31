@@ -1,3 +1,5 @@
 Giveaways::Engine.routes.draw do
-	resources :giveaways
+	resources :giveaways do
+		resources :entrants, only: [:index]
+	end
 end

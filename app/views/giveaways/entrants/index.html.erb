@@ -1,0 +1,20 @@
+<h1>Entrants for: <%= @giveaway.title %></h1>
+
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Ballots</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% entrants.each do |entrant| %>
+			<tr>
+				<td><%= entrant.first_name %></td>
+				<td><%= entrant.email %></td>
+				<td><%= entrant.ballots %></td>
+			</tr>	
+		<% end %>
+	</tbody>
+</table>

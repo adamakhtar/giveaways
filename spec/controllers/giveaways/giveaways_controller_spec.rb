@@ -1,8 +1,11 @@
 require 'rails_helper'
 
+include StubGiveawayHelper
+include StubGiveawayUserHelper
+
 module Giveaways
   RSpec.describe GiveawaysController, type: :controller do 
-
+    
   	before do
   		@routes = Giveaways::Engine.routes
   	end
@@ -157,16 +160,6 @@ module Giveaways
 
         expect(response).to redirect_to '/'
       end
-    end
-
-  	def stub_giveaway_user_with(user)
-  		allow(controller).to receive(:giveaway_user).and_return(user)
-  	end
-
-    def stub_giveaway
-      giveaway = build_stubbed(:giveaway)
-      allow(controller).to receive(:load_giveaway).and_return(giveaway)
-      giveaway
     end
   end
 end

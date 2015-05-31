@@ -3,7 +3,7 @@ require_dependency "giveaways/application_controller"
 module Giveaways
   class GiveawaysController < ApplicationController
 
-  	before_action :ensure_authorized
+  	before_action :ensure_admin
 
   	def index
   		@giveaways = Giveaway.all
@@ -50,10 +50,6 @@ module Giveaways
     end
 
   	protected
-
-  	def ensure_authorized
-  		redirect_to sign_in_path unless giveaway_user.can_manage_giveaways?
-  	end
 
     def giveaway_params
       params.require(:giveaway).permit(:title, :description, :starts_at, :ends_at)
