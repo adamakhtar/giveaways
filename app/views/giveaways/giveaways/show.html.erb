@@ -1,0 +1,6 @@
+<h1>Giveaway: <%= @giveaway.title %></h1>
+
+<h5 class="starts_at">Starts at: <span><%= @giveaway.starts_at %></span></h5>
+<h5 class="starts_at">Ends at: <span><%= @giveaway.ends_at %></span></h5>
+
+<%= sanitize @giveaway.description.html_safe %>

@@ -4,9 +4,13 @@ module Giveaways
   class GiveawaysController < ApplicationController
 
   	before_action :ensure_authorized
-  	
+
   	def index
   		@giveaways = Giveaway.all
+  	end
+
+  	def show
+  		@giveaway = Giveaway.find(params[:id])
   	end
 
   	protected

@@ -11,7 +11,7 @@
 	<tbody>
 		<%= @giveaways.each do |giveaway| %>
 			<tr>
-				<td><%= giveaway.title %></td>
+				<td><%= link_to giveaway.title, giveaway %></td>
 				<td><%= giveaway.starts_at %></td>
 				<td><%= giveaway.ends_at %></td>
 			</tr>
