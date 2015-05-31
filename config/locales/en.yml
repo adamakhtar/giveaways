@@ -13,5 +13,6 @@ giveaways:
     updated: 'Your giveaway was updated.'
     destroyed: 'Your giveaway was deleted.'
     forms:
+      default_thank_you_message: '<p>Thank you for entering. Please confirm by clicking the link we just emailed you.</p>'          
       create: "Create this giveaway"
       update: "Update this giveaway" 

@@ -6,3 +6,5 @@
 <h5 class="starts_at">Ends at: <span><%= l @giveaway.ends_at, format: :long %></span></h5>
 
 <%= sanitize @giveaway.description.html_safe %>
+
+<%= sanitize @giveaway.thank_you_message.html_safe %>
