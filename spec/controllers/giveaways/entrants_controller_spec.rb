@@ -31,5 +31,36 @@ module Giveaways
  				expect(response).to redirect_to '/'
  			end
   	end
+
+    describe "GET to new" do
+      it "renders new" do
+        stub_giveaway
+
+        get :new, giveaway_id: 1
+
+        expect(response).to render_template('new')
+      end
+    end
+
+    describe "POST to create" do
+      it "is success when valid" do
+        stub_giveaway
+        allow_any_instance_of(Entrant).to receive(:save).and_return(true)
+      
+        post :create, giveaway_id: 1, entrant: attributes_for(:entrant)
+
+        expect(response).to render_template('thank_you')
+      end
+      
+      
+      it "renders new template when not valid" do
+        stub_giveaway
+        allow_any_instance_of(Entrant).to receive(:save).and_return(false)  
+
+        post :create, giveaway_id: 1, entrant: attributes_for(:entrant)
+
+        expect(response).to render_template('new')
+      end
+    end
   end
 end

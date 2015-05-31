@@ -2,7 +2,11 @@ en:
   formats:
     long: "%A %e %b %Y %m %M %p" 
 giveaways:
+  entrants:
+    forms:
+      create: "Enter the competition"
   giveaways:
+    prize: 'prize'
     new_link: 'New'
     edit_link: 'Edit'
     created: 'Your giveaway was created.'

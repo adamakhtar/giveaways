@@ -9,7 +9,27 @@ module Giveaways
   		@entrants = @giveaway.entrants.page(params[:page]).per(50)
   	end
 
+    def new
+      @giveaway = load_giveaway
+      @entrant = Entrant.new
+    end
+
+    def create
+      @giveaway = load_giveaway
+      @entrant = Entrant.new(entrant_params)
+
+      if @entrant.save
+        render :thank_you
+      else
+        render :new
+      end
+    end
+
   	protected
+
+    def entrant_params
+      params.require(:entrant).permit(:first_name, :email)
+    end
 
   	def load_giveaway
   		Giveaway.find(params[:giveaway_id])
