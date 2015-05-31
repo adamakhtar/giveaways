@@ -65,6 +65,32 @@ module Giveaways
 	 		end
 	 	end
 
+    describe "POST to create" do
+      it "redirects to show when valid" do
+        stub_giveaway_user_with(Giveaways::FakeAdminUser.new)
+      
+        post :create, giveaway: attributes_for(:giveaway)
+
+        expect(response).to be_success
+      end
+
+      it "renders new when not valid" do          
+        stub_giveaway_user_with(Giveaways::FakeAdminUser.new)
+      
+        post :create, giveaway: attributes_for(:giveaway).merge(title: '')
+
+        expect(response).to be_success
+      end
+
+      it "redirects to configured sign in path when not admin" do
+        stub_giveaway_user_with(Giveaways::FakeUser.new)
+        
+        post :create
+
+        expect(response).to redirect_to '/'
+      end
+    end
+
   	def stub_giveaway_user_with(user)
   		allow(controller).to receive(:giveaway_user).and_return(user)
   	end
