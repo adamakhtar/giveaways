@@ -13,6 +13,9 @@ module Giveaways
   		@giveaway = Giveaway.find(params[:id])
   	end
 
+  	def new
+  	end
+
   	protected
 
   	def ensure_authorized

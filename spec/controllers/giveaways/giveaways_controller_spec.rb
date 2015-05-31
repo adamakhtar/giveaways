@@ -47,6 +47,24 @@ module Giveaways
   		end
   	end
 
+	 	describe "GET to new" do
+	 		it "responds with success when admin" do
+	 			stub_giveaway_user_with(Giveaways::FakeAdminUser.new)
+
+	 			get :new
+
+				expect(response).to be_success
+	 		end
+
+	 		it "redirects to configured sign in path when not admin" do
+	 			stub_giveaway_user_with(Giveaways::FakeUser.new)
+	 			
+	 			get :new
+
+				expect(response).to redirect_to '/'
+	 		end
+	 	end
+
   	def stub_giveaway_user_with(user)
   		allow(controller).to receive(:giveaway_user).and_return(user)
   	end

@@ -1,0 +1,7 @@
+en:
+  formats:
+    long: "%A %e %b %Y %m %M %p" 
+giveaways:
+  giveaways:
+    forms:
+      create: "Create this giveaway"
