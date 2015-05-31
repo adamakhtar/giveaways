@@ -141,6 +141,27 @@ module Giveaways
       end
     end
 
+    describe "DELETE to destroy" do
+      it "redirects to index when successful" do
+        giveaway = stub_giveaway
+        allow(giveaway).to receive(:destroy).and_return true
+        stub_giveaway_user_with(Giveaways::FakeAdminUser.new)
+      
+        delete :destroy, id: 1
+
+        expect(response).to redirect_to giveaways_path
+      end
+
+
+      it "redirects to configured sign in path when not admin" do
+        stub_giveaway_user_with(Giveaways::FakeUser.new)
+        
+        delete :destroy, id: 1
+
+        expect(response).to redirect_to '/'
+      end
+    end
+
   	def stub_giveaway_user_with(user)
   		allow(controller).to receive(:giveaway_user).and_return(user)
   	end

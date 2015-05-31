@@ -42,6 +42,13 @@ module Giveaways
       end
     end
 
+    def destroy
+      @giveaway = load_giveaway
+      @giveaway.destroy
+      flash[:success] = t('giveaways.giveaways.destroyed')
+      redirect_to giveaways_path
+    end
+
   	protected
 
   	def ensure_authorized

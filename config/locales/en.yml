@@ -7,6 +7,7 @@ giveaways:
     edit_link: 'Edit'
     created: 'Your giveaway was created.'
     updated: 'Your giveaway was updated.'
+    destroyed: 'Your giveaway was deleted.'
     forms:
       create: "Create this giveaway"
       update: "Update this giveaway" 
