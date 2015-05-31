@@ -27,6 +27,9 @@ module Giveaways
       end
     end
 
+    def edit
+    end
+
   	protected
 
   	def ensure_authorized

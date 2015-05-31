@@ -3,5 +3,8 @@ en:
     long: "%A %e %b %Y %m %M %p" 
 giveaways:
   giveaways:
+    new_link: 'New'
+    edit_link: 'Edit'
     forms:
       create: "Create this giveaway"
+      update: "Update this giveaway" 

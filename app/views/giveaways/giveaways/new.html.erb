@@ -1,15 +1,3 @@
 <h1>Create a new giveaway</h1>
 
-<%= simple_form_for :giveaways, @giveaway do |f| %>
-	
-	<%= f.input :title %>
-
-	<%= f.input :description %>
-
-	<%= f.input :starts_at %>
-
-	<%= f.input :ends_at %>
-
-	<%= f.button t('giveaways.giveaways.forms.create') %>
-
-<% end %>
+<%= render 'form' %>
