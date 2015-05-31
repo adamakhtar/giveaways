@@ -91,28 +91,64 @@ module Giveaways
       end
     end
 
-      describe "GET to edit" do
-        it "is success when admin" do
-          giveaway = build_stubbed(:giveaway)
-          allow(Giveaway).to receive(:find).and_return giveaway
-          stub_giveaway_user_with(Giveaways::FakeAdminUser.new)
+    describe "GET to edit" do
+      it "is success when admin" do
+        giveaway = build_stubbed(:giveaway)
+        allow(Giveaway).to receive(:find).and_return giveaway
+        stub_giveaway_user_with(Giveaways::FakeAdminUser.new)
 
-          get :edit, id: 1
+        get :edit, id: 1
 
-          expect(response).to be_success
-        end
-
-        it "redirects to configured sign in path when not admin" do
-          stub_giveaway_user_with(Giveaways::FakeUser.new)
-          
-          get :edit, id: 1
-
-          expect(response).to redirect_to '/'
-        end
+        expect(response).to be_success
       end
+
+      it "redirects to configured sign in path when not admin" do
+        stub_giveaway_user_with(Giveaways::FakeUser.new)
+        
+        get :edit, id: 1
+
+        expect(response).to redirect_to '/'
+      end
+    end
+
+    describe "PUT to update" do
+      it "redirects to show when valid" do
+        giveaway = stub_giveaway
+        allow(giveaway).to receive(:update_attributes).and_return true
+        stub_giveaway_user_with(Giveaways::FakeAdminUser.new)
+      
+        put :update, id: 1, giveaway: attributes_for(:giveaway)
+
+        expect(response).to redirect_to giveaway_path(giveaway)
+      end
+
+      it "renders edit when not valid" do          
+        giveaway = stub_giveaway
+        allow(giveaway).to receive(:update_attributes).and_return false
+        stub_giveaway_user_with(Giveaways::FakeAdminUser.new)
+      
+        put :update, id: 1, giveaway: attributes_for(:giveaway)
+
+        expect(response).to render_template('edit')
+      end
+
+      it "redirects to configured sign in path when not admin" do
+        stub_giveaway_user_with(Giveaways::FakeUser.new)
+        
+        put :update, id: 1
+
+        expect(response).to redirect_to '/'
+      end
+    end
 
   	def stub_giveaway_user_with(user)
   		allow(controller).to receive(:giveaway_user).and_return(user)
   	end
+
+    def stub_giveaway
+      giveaway = build_stubbed(:giveaway)
+      allow(controller).to receive(:load_giveaway).and_return(giveaway)
+      giveaway
+    end
   end
 end

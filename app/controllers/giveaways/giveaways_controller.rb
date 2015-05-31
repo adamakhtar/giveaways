@@ -10,7 +10,7 @@ module Giveaways
   	end
 
   	def show
-  		@giveaway = Giveaway.find(params[:id])
+  	 @giveaway = load_giveaway
   	end
 
   	def new
@@ -28,6 +28,18 @@ module Giveaways
     end
 
     def edit
+      @giveaway = load_giveaway
+    end
+
+    def update
+      @giveaway = load_giveaway
+
+      if @giveaway.update_attributes(giveaway_params)
+        flash[:success] = t('giveaways.giveaways.updated')
+        redirect_to @giveaway
+      else
+        render :edit
+      end
     end
 
   	protected
@@ -38,6 +50,10 @@ module Giveaways
 
     def giveaway_params
       params.require(:giveaway).permit(:title, :description, :starts_at, :ends_at)
+    end
+
+    def load_giveaway
+      Giveaway.find(params[:id])
     end
   end
 end
