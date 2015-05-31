@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150531141719) do
+ActiveRecord::Schema.define(version: 20150531145643) do
 
   create_table "giveaways_entrants", force: :cascade do |t|
     t.integer  "giveaway_id"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20150531141719) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.text     "thank_you_message"
+    t.string   "email_subject"
+    t.text     "email_message"
   end
 
 end

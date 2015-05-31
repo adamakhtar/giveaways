@@ -6,6 +6,10 @@
 
 	<%= f.input :thank_you_message, :input_html { value: t('giveaways.giveaways.forms.default_thank_you_message') } %>
 
+	<%= f.input :email_message, :input_html { value: t('giveaways.giveaways.forms.default_email_message') } %>
+	
+	<%= f.input :email_subject, :input_html { value: t('giveaways.giveaways.forms.default_email_subject') } %>
+
 	<%= f.input :starts_at %>
 
 	<%= f.input :ends_at %>

@@ -14,5 +14,7 @@ giveaways:
     destroyed: 'Your giveaway was deleted.'
     forms:
       default_thank_you_message: '<p>Thank you for entering. Please confirm by clicking the link we just emailed you.</p>'          
+      default_email_message: '<p>Hey there. Thanks for entering our giveaway competition. Click the link below to confirm your entry.</p>'          
+      default_email_subject: 'Confirm your entry to our giveaway'          
       create: "Create this giveaway"
       update: "Update this giveaway" 

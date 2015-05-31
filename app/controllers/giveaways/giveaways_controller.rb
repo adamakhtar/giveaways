@@ -52,7 +52,19 @@ module Giveaways
   	protected
 
     def giveaway_params
-      params.require(:giveaway).permit(:title, :description, :starts_at, :ends_at)
+      params.require(:giveaway).permit(*giveaway_attributes)
+    end
+
+    def giveaway_attributes
+      [
+        :title, 
+        :description, 
+        :starts_at, 
+        :ends_at, 
+        :thank_you_message,
+        :email_subject,
+        :email_message
+      ]
     end
 
     def load_giveaway
