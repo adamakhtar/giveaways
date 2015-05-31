@@ -14,6 +14,12 @@ module Giveaways
     	expect(errors.keys).to include :number_of_prizes
     end
 
+    it "ensures ends_at is later than starts_at" do
+      giveaway = build(:giveaway, starts_at: 1.day.from_now, ends_at: 1.day.ago)
+      expect(giveaway).to_not be_valid
+      expect(giveaway.errors[:ends_at]).to eq ['must be later than the start date.']
+    end
+
     describe "#in_progress?" do
       it "returns true when currently in_progress" do
         giveaway = Giveaway.new(starts_at: 1.day.ago, ends_at: 1.week.from_now)
