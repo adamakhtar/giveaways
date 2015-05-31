@@ -1,0 +1,20 @@
+<h1>All Giveaways</h1>
+
+<table>
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<%= @giveaways.each do |giveaway| %>
+			<tr>
+				<td><%= giveaway.title %></td>
+				<td><%= giveaway.starts_at %></td>
+				<td><%= giveaway.ends_at %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
