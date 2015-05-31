@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.add_dependency "email_validator"
   s.add_dependency "rails", "~> 4.2.1"
   s.add_dependency "simple_form", "~> 3.1.0"
+  s.add_dependency "kaminari", "~> 0.16.0"
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "byebug"

@@ -6,7 +6,7 @@ module Giveaways
 
   	def index
   		@giveaway = load_giveaway
-  		@entrants = @giveaway.entrants
+  		@entrants = @giveaway.entrants.page(params[:page]).per(50)
   	end
 
   	protected

@@ -9,7 +9,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<% entrants.each do |entrant| %>
+		<% @entrants.each do |entrant| %>
 			<tr>
 				<td><%= entrant.first_name %></td>
 				<td><%= entrant.email %></td>
@@ -18,3 +18,5 @@
 		<% end %>
 	</tbody>
 </table>
+
+<%= paginate @entrants %>
