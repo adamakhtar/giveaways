@@ -45,7 +45,7 @@ module Giveaways
     describe "POST to create" do
       it "is success when valid" do
         stub_giveaway
-        allow_any_instance_of(Entrant).to receive(:save).and_return(true)
+        allow_any_instance_of(Entrant).to receive(:register).and_return(true)
       
         post :create, giveaway_id: 1, entrant: attributes_for(:entrant)
 
@@ -55,7 +55,7 @@ module Giveaways
       
       it "renders new template when not valid" do
         stub_giveaway
-        allow_any_instance_of(Entrant).to receive(:save).and_return(false)  
+        allow_any_instance_of(Entrant).to receive(:register).and_return(false)  
 
         post :create, giveaway_id: 1, entrant: attributes_for(:entrant)
 

@@ -16,9 +16,8 @@ module Giveaways
 
     def create
       @giveaway = load_giveaway
-      @entrant = Entrant.new(entrant_params)
-
-      if @entrant.save
+    
+      if register_entrant
         render :thank_you
       else
         render :new
@@ -26,6 +25,11 @@ module Giveaways
     end
 
   	protected
+
+    def register_entrant
+      @entrant = @giveaway.entrants.build(entrant_params)
+      @entrant.register
+    end
 
     def entrant_params
       params.require(:entrant).permit(:first_name, :email)

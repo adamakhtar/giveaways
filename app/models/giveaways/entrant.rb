@@ -11,5 +11,14 @@ module Giveaways
   										}
 
   	validates :first_name, presence: true
+
+    def register
+      if save
+        EntrantMailer.confirm_email(id).deliver_later
+        true
+      else
+        false
+      end
+    end
   end
 end

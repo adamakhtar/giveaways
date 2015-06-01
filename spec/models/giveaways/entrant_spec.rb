@@ -17,5 +17,34 @@ module Giveaways
     	expect(cheater).to_not be_valid
     	expect(cheater.errors.full_messages).to include 'Email has already been registered for this giveaway. Check your email for notification.'
     end
+
+    describe "#register" do
+      it "saves and sends a valid entrant confirmation email" do
+        mailer = stub_mailer
+        entrant = build(:entrant)
+
+        result = entrant.register
+
+        expect(entrant).to be_persisted
+        expect(mailer).to have_received(:confirm_email)
+        expect(result).to be true
+      end
+
+      it "doesn't send confirmation email to invalid entry" do
+        mailer = stub_mailer
+        entrant = build(:entrant, email: "")
+
+        result = entrant.register
+
+        expect(mailer).to_not have_received(:confirm_email)
+        expect(result).to be false
+      end
+
+      def stub_mailer
+        mailer = double("mailer", deliver_later: true)
+        allow(EntrantMailer).to receive(:confirm_email).and_return(mailer)
+        EntrantMailer
+      end
+    end
   end
 end
