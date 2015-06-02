@@ -9,7 +9,15 @@ module Giveaways
   			'first_name' => entrant.first_name
   		}
   		body = ::Liquid::Template.parse(giveaway.email_message).render(tags)
-  		mail to: entrant.email, body: body, content_type: "text/plain", subject: giveaway.email_subject
+
+  		mail(
+        content_type: "text/plain", 
+        to: entrant.email, 
+        from: giveaway.email_from,
+        reply_to: giveaway.email_reply_to,
+        subject: giveaway.email_subject,
+        body: body
+      )
   	end
   end
 end
