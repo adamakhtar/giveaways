@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150531145643) do
+ActiveRecord::Schema.define(version: 20150602001824) do
 
   create_table "giveaways_entrants", force: :cascade do |t|
     t.integer  "giveaway_id"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20150531145643) do
     t.text     "thank_you_message"
     t.string   "email_subject"
     t.text     "email_message"
+    t.string   "email_from"
+    t.string   "email_reply_to"
   end
 
 end

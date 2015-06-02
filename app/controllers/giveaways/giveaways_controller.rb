@@ -63,7 +63,9 @@ module Giveaways
         :ends_at, 
         :thank_you_message,
         :email_subject,
-        :email_message
+        :email_from,
+        :email_reply_to,
+        :email_message,
       ]
     end
 

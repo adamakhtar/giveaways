@@ -3,6 +3,8 @@ FactoryGirl.define do
     title "Ipad Giveaway"
 		description "Win a new ipad."
 		thank_you_message "Thank you for entering"
+		email_from "Adam"
+		email_reply_to "adam@example.com"
 		email_subject "Confirm your email"
 		email_message "Please click this link"
 		starts_at 1.day.from_now

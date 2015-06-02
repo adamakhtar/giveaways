@@ -8,6 +8,10 @@ module Giveaways
     	errors = giveaway.errors
     	expect(errors.keys).to include :title
       expect(errors.keys).to include :description
+      expect(errors.keys).to include :email_from
+      expect(errors.keys).to include :email_reply_to
+      expect(errors.keys).to include :email_subject
+      expect(errors.keys).to include :email_message
     	expect(errors.keys).to include :thank_you_message
     	expect(errors.keys).to include :starts_at
     	expect(errors.keys).to include :ends_at
