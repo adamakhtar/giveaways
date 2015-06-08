@@ -18,6 +18,12 @@ module Giveaways
     	expect(cheater.errors.full_messages).to include 'Email has already been registered for this giveaway. Check your email for notification.'
     end
 
+    it "is initialized with confirmation_token" do
+      entrant = Entrant.new
+      expect(entrant.confirmation_token.size).to be 22
+      expect(entrant.confirmation_token).to be_a String
+    end
+
     describe "#register" do
       it "saves and sends a valid entrant confirmation email" do
         mailer = stub_mailer
@@ -44,6 +50,23 @@ module Giveaways
         mailer = double("mailer", deliver_later: true)
         allow(EntrantMailer).to receive(:confirm_email).and_return(mailer)
         EntrantMailer
+      end
+    end
+
+    describe ".confirm_email" do
+      it "when give key is valid sets email_confirmed to true" do
+        entrant = create(:entrant)
+
+        result = Entrant.confirm_email(entrant.confirmation_token)
+        entrant.reload
+
+        expect(result).to be_truthy
+        expect(entrant.confirmed_email?).to be_truthy
+      end
+      
+      it "when give key is invalid does not set email_confirmed to true" do
+
+
       end
     end
   end

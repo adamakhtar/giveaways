@@ -62,5 +62,32 @@ module Giveaways
         expect(response).to render_template('new')
       end
     end
+
+    describe "GET to confirm" do
+      it "is success when valid" do
+        stub_giveaway
+        entrant = stub_entrant_with_key
+        expect(entrant).to receive(:confirm_email!)
+
+        get :confirm, giveaway_id: 1, key: entrant.confirmation_token
+
+        expect(response.body).to render_template('confirm')
+      end
+      
+      
+      it "renders invalid_token template when not valid" do
+        stub_giveaway
+
+        get :confirm, giveaway_id: 1, key: 'junk'
+        
+        expect(response).to render_template('invalid_token')
+      end
+    end
+
+    def stub_entrant_with_key  
+      entrant = build_stubbed(:entrant)
+      allow(Entrant).to receive(:find_by).and_return entrant
+      entrant
+    end
   end
 end

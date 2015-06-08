@@ -6,7 +6,8 @@ module Giveaways
   		entrant = Entrant.find(entrant_id)
   		giveaway = entrant.giveaway
   		tags = {
-  			'first_name' => entrant.first_name
+  			'first_name' => entrant.first_name,
+        'confirm_email_link' => confirm_giveaway_entrant_url(giveaway, entrant.confirmation_token)
   		}
   		body = ::Liquid::Template.parse(giveaway.email_message).render(tags)
 

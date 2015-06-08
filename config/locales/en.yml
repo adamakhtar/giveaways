@@ -3,6 +3,8 @@ en:
     long: "%A %e %b %Y %m %M %p" 
 giveaways:
   entrants:
+    confirmed_email: 'Congratulations. You have been entered into the giveaway.'
+    not_confirmed_email: 'Sorry that link is not valid.'
     forms:
       create: "Enter the competition"
   giveaways:
