@@ -10,10 +10,10 @@ module Giveaways
   											message: 'has already been registered for this giveaway. Check your email for notification.' 
   										}
 
-  	validates :first_name, presence: true
+  	validates :first_name, :confirmation_token, :referral_token, presence: true
 
-    after_initialize :set_confirmation_token
-
+    after_initialize :set_tokens
+    
     def self.confirm_email(token)
       if entrant = where(confirmation_token: token).take
         entrant.confirm_email!
@@ -36,9 +36,22 @@ module Giveaways
       end
     end
 
-    def set_confirmation_token
+    def generate_token
+      SecureRandom.urlsafe_base64
+    end
+
+    def set_tokens
       return if persisted?
-      self.confirmation_token ||= SecureRandom.urlsafe_base64
+      ensure_referral_token
+      ensure_confirmation_token
+    end
+
+    def ensure_confirmation_token
+      self.confirmation_token ||= generate_token
+    end
+
+    def ensure_referral_token 
+      self.referral_token ||= generate_token
     end
   end
 end

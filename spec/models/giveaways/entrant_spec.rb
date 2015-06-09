@@ -18,12 +18,6 @@ module Giveaways
     	expect(cheater.errors.full_messages).to include 'Email has already been registered for this giveaway. Check your email for notification.'
     end
 
-    it "is initialized with confirmation_token" do
-      entrant = Entrant.new
-      expect(entrant.confirmation_token.size).to be 22
-      expect(entrant.confirmation_token).to be_a String
-    end
-
     describe "#register" do
       it "saves and sends a valid entrant confirmation email" do
         mailer = stub_mailer
