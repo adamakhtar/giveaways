@@ -57,10 +57,13 @@ module Giveaways
         expect(result).to be_truthy
         expect(entrant.confirmed_email?).to be_truthy
       end
-      
-      it "when give key is invalid does not set email_confirmed to true" do
+    end
 
-
+    describe ".reward_referral" do
+      it "increments entrants ballots count by given ammount" do
+        entrant = create(:entrant, ballots: 1)
+        entrant.reward_referral(3)
+        expect(entrant.ballots).to eq 4
       end
     end
   end

@@ -16,8 +16,9 @@ module Giveaways
 
     def create
       @giveaway = load_giveaway
-    
-      if register_entrant
+      @entrant = EntrantRegistrar.register(@giveaway, entrant: entrant_params, referrel_token: params[:referral]) 
+      
+      if @entrant.valid?
         render :thank_you
       else
         render :new
@@ -33,8 +34,11 @@ module Giveaways
 
   	protected
 
-    def load_entrant_with_key
-      entrant = Entrant.find_by(giveaway: @giveaway, confirmation_token: params[:id], confirmed_email: false)
+    def entrant_params
+      params.require(:entrant).permit(:email, :first_name)
+    end
+
+    def load_referrer_with_key
       if entrant 
         yield entrant
       else
@@ -42,13 +46,13 @@ module Giveaways
       end
     end
 
-    def register_entrant
-      @entrant = @giveaway.entrants.build(entrant_params)
-      @entrant.register
-    end
-
-    def entrant_params
-      params.require(:entrant).permit(:first_name, :email)
+    def load_entrant_with_key
+      entrant = Entrant.find_by(giveaway: @giveaway, confirmation_token: params[:id], confirmed_email: false)
+      if entrant 
+        yield entrant
+      else
+        render 'invalid_token'
+      end
     end
 
   	def load_giveaway

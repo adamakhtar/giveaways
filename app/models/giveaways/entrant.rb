@@ -27,6 +27,18 @@ module Giveaways
       self.update_attributes(confirmed_email: true)
     end
 
+    def ensure_confirmation_token
+      self.confirmation_token ||= generate_token
+    end
+
+    def ensure_referral_token 
+      self.referral_token ||= generate_token
+    end
+
+    def generate_token
+      SecureRandom.urlsafe_base64
+    end
+
     def register
       if save
         EntrantMailer.confirm_email(id).deliver_later
@@ -36,22 +48,14 @@ module Giveaways
       end
     end
 
-    def generate_token
-      SecureRandom.urlsafe_base64
+    def reward_referral(ballots)
+      increment(:ballots, ballots)
     end
 
     def set_tokens
       return if persisted?
       ensure_referral_token
       ensure_confirmation_token
-    end
-
-    def ensure_confirmation_token
-      self.confirmation_token ||= generate_token
-    end
-
-    def ensure_referral_token 
-      self.referral_token ||= generate_token
     end
   end
 end

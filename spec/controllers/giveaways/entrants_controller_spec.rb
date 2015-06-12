@@ -43,20 +43,36 @@ module Giveaways
     end
 
     describe "POST to create" do
-      it "is success when valid" do
-        stub_giveaway
-        allow_any_instance_of(Entrant).to receive(:register).and_return(true)
-      
-        post :create, giveaway_id: 1, entrant: attributes_for(:entrant)
+      context "when a referral" do
+        it "is success when valid" do
+          stub_giveaway
+          entrant = build_stubbed(:entrant)
+          allow(EntrantRegistrar).to receive(:register).and_return(entrant)
+        
+          post :create, giveaway_id: 1, referral: 'abcd', entrant: attributes_for(:entrant)
 
-        expect(response).to render_template('thank_you')
+          expect(response).to render_template('thank_you')
+        end
       end
+
+      context "when not a referral" do
+        it "is success when valid" do
+          stub_giveaway
+          entrant = build_stubbed(:entrant)
+          allow(EntrantRegistrar).to receive(:register).and_return(entrant)
+        
+          post :create, giveaway_id: 1, entrant: attributes_for(:entrant)
+
+          expect(response).to render_template('thank_you')
+        end
+      end 
       
       
       it "renders new template when not valid" do
         stub_giveaway
-        allow_any_instance_of(Entrant).to receive(:register).and_return(false)  
-
+        entrant = build_stubbed(:entrant, first_name: nil)
+        allow(EntrantRegistrar).to receive(:register).and_return(entrant)
+        
         post :create, giveaway_id: 1, entrant: attributes_for(:entrant)
 
         expect(response).to render_template('new')
