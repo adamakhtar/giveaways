@@ -11,13 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150612005144) do
+ActiveRecord::Schema.define(version: 20150618002533) do
+
+  create_table "giveaways_ballots", force: :cascade do |t|
+    t.integer  "entrant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "giveaways_ballots", ["entrant_id"], name: "index_giveaways_ballots_on_entrant_id"
 
   create_table "giveaways_entrants", force: :cascade do |t|
     t.integer  "giveaway_id"
     t.string   "first_name"
     t.string   "email"
-    t.integer  "ballots",            default: 0
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
     t.string   "confirmation_token"

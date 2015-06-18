@@ -19,7 +19,7 @@ module Giveaways
     end
 
     describe "#register" do
-      it "saves and sends a valid entrant confirmation email" do
+      it "saves, creates a ballot and sends a valid entrant confirmation email" do
         mailer = stub_mailer
         entrant = build(:entrant)
 
@@ -27,6 +27,7 @@ module Giveaways
 
         expect(entrant).to be_persisted
         expect(mailer).to have_received(:confirm_email)
+        expect(entrant.ballots.count).to eq 1
         expect(result).to be true
       end
 
@@ -61,9 +62,10 @@ module Giveaways
 
     describe ".reward_referral" do
       it "increments entrants ballots count by given ammount" do
-        entrant = create(:entrant, ballots: 1)
+        entrant = create(:entrant, :registered)
+        expect(entrant.ballots.count).to eq 1
         entrant.reward_referral(3)
-        expect(entrant.ballots).to eq 4
+        expect(entrant.ballots.count).to eq 4
       end
     end
   end

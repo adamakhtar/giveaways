@@ -6,5 +6,11 @@ FactoryGirl.define do
   factory :entrant, :class => 'Giveaways::Entrant' do
     first_name "Bob"
 		email
+
+    trait :registered do
+      after :create do |entrant|
+        entrant.ballots << create(:ballot)
+      end
+    end
   end
 end
