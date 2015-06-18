@@ -1,7 +1,7 @@
 module Giveaways
   class Giveaway < ActiveRecord::Base
 
-  	has_many :entrants
+  	has_many :entrants, dependent: :destroy
 
   	validates :title, :description, :starts_at, :ends_at, presence: true
     validates :thank_you_message, :number_of_prizes, presence: true
