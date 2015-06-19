@@ -21,7 +21,7 @@ module Giveaways
 
       if @giveaway.save
         flash[:success] = t('giveaways.giveaways.created')
-        redirect_to giveaway
+        redirect_to @giveaway
       else
         render :new
       end
@@ -61,6 +61,8 @@ module Giveaways
         :description, 
         :starts_at, 
         :ends_at, 
+        :ballots_per_referral,
+        :number_of_prizes,
         :thank_you_message,
         :email_subject,
         :email_from,

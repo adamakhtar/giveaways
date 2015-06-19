@@ -72,7 +72,7 @@ module Giveaways
       
         post :create, giveaway: attributes_for(:giveaway)
 
-        expect(response).to be_success
+        expect(response).to be_redirect
       end
 
       it "renders new when not valid" do          

@@ -3,9 +3,9 @@ module Giveaways
 
   	has_many :entrants, dependent: :destroy
 
-  	validates :title, :description, :starts_at, :ends_at, presence: true
-    validates :thank_you_message, :number_of_prizes, presence: true
+  	validates :title, :description, :starts_at, :ends_at, :thank_you_message, presence: true
     validates :email_subject, :email_message, :email_from, presence: true
+    validates :number_of_prizes, :ballots_per_referral, numericality: { only_integer: true, allow_nil: false }
     validates :email_reply_to, email: true
   	validate :starts_at_is_before_ends_at
 

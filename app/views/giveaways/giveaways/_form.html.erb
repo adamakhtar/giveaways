@@ -4,6 +4,14 @@
 
 	<%= f.input :description %>
 
+	<%= f.input :starts_at %>
+
+	<%= f.input :ends_at %>
+
+	<%= f.input :ballots_per_referral %>
+
+	<%= f.input :number_of_prizes %>
+
 	<%= f.input :thank_you_message, :input_html { value: t('giveaways.giveaways.forms.default_thank_you_message') } %>
 
 	<%= f.input :email_from %>
@@ -14,9 +22,6 @@
 
 	<%= f.input :email_message, :input_html { value: t('giveaways.giveaways.forms.default_email_message') } %>
 	
-	<%= f.input :starts_at %>
-
-	<%= f.input :ends_at %>
 
 	<%= f.button @giveaway.persisted? ? t('giveaways.giveaways.forms.update') : t('giveaways.giveaways.forms.create') %>
 <% end %>

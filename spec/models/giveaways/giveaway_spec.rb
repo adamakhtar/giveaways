@@ -3,19 +3,20 @@ require 'rails_helper'
 module Giveaways
   RSpec.describe Giveaway, type: :model do
     it "is invalid without neccessary attributes" do
-    	giveaway = Giveaway.new
-    	giveaway.valid?
-    	errors = giveaway.errors
-    	expect(errors.keys).to include :title
+      giveaway = Giveaway.new(ballots_per_referral: nil)
+      giveaway.valid?
+      errors = giveaway.errors
+      expect(errors.keys).to include :title
       expect(errors.keys).to include :description
       expect(errors.keys).to include :email_from
       expect(errors.keys).to include :email_reply_to
       expect(errors.keys).to include :email_subject
       expect(errors.keys).to include :email_message
-    	expect(errors.keys).to include :thank_you_message
-    	expect(errors.keys).to include :starts_at
-    	expect(errors.keys).to include :ends_at
-    	expect(errors.keys).to include :number_of_prizes
+      expect(errors.keys).to include :thank_you_message
+      expect(errors.keys).to include :starts_at
+      expect(errors.keys).to include :ends_at
+      expect(errors.keys).to include :number_of_prizes
+      expect(errors.keys).to include :ballots_per_referral
     end
 
     it "ensures ends_at is later than starts_at" do
