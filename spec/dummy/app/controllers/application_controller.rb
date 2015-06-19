@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def giveaway_user
-  	# current_user
+  	User.first
   end
 
   def sign_in_path
