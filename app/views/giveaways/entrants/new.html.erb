@@ -1,21 +1,21 @@
 <% if @giveaway.in_progress? %>
 
-	<h1><%= @giveaway.title %></h1>
+  <h1><%= @giveaway.title %></h1>
 
-	<h5 class="starts_at">Starts at: <span><%= l @giveaway.starts_at, format: :long %></span></h5>
-	<h5 class="starts_at">Ends at: <span><%= l @giveaway.ends_at, format: :long %></span></h5>
-	<h5 class="number_of_prizes"><%= pluralize(@giveaway.number_of_prizes, t('giveaways.giveaways.prize') %></h5>
+  <h5 class="starts_at">Starts at: <span><%= l @giveaway.starts_at, format: :long %></span></h5>
+  <h5 class="starts_at">Ends at: <span><%= l @giveaway.ends_at, format: :long %></span></h5>
+  <h5 class="number_of_prizes"><%= pluralize(@giveaway.number_of_prizes, t('giveaways.giveaways.prize')) %></h5>
 
-	<%= sanitize @giveaway.description %>
+  <%= sanitize @giveaway.description %>
 
-	<%= simple_form_for [@giveaway, @entrant] do |f| %>
-		
-		<%= f.input :first_name %>
+  <%= simple_form_for [giveaways, @giveaway, @entrant] do |f| %>
+      
+    <%= f.input :first_name %>
 
-		<%= f.input :email %>
+    <%= f.input :email %>
 
-		<%= f.button t('giveaways.entrants.forms.create') %>
+    <%= f.button :submit, t('giveaways.entrants.forms.create') %>
 
-	<% end %>
+  <% end %>
 
 <% end %>
