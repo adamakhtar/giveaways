@@ -14,13 +14,13 @@
 
 	<%= f.input :thank_you_message, input_html: { value: t('giveaways.giveaways.forms.default_thank_you_message') } %>
 
-	<%= f.input :email_from %>
+	<%= f.input :email_from, as: :string %>
 
-	<%= f.input :email_reply_to %>
+	<%= f.input :email_reply_to, as: :email %>
 
-	<%= f.input :email_subject, input_html: { value: t('giveaways.giveaways.forms.default_email_subject') } %>
+	<%= f.input :email_subject, as: :string, input_html: { value: t('giveaways.giveaways.forms.default_email_subject') } %>
 
-	<%= f.input :email_message, input_html: { value: t('giveaways.giveaways.forms.default_email_message') } %>
+	<%= f.input :email_message, as: :text, input_html: { value: t('giveaways.giveaways.forms.default_email_message') } %>
 	
 
 	<%= f.button :submit, @giveaway.persisted? ? t('giveaways.giveaways.forms.update') : t('giveaways.giveaways.forms.create') %>

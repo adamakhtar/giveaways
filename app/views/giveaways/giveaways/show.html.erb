@@ -1,6 +1,6 @@
 <h1>Giveaway: <%= @giveaway.title %></h1>
 
-<%= t('giveaways.giveaways.edit_link'), edit_giveaway_path(giveaway) %>
+<%= link_to t('giveaways.giveaways.edit_link'), edit_giveaway_path(@giveaway) %>
 
 <h5 class="starts_at">Starts at: <span><%= l @giveaway.starts_at, format: :long %></span></h5>
 <h5 class="starts_at">Ends at: <span><%= l @giveaway.ends_at, format: :long %></span></h5>
