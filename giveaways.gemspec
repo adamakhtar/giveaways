@@ -25,6 +25,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "byebug"
   s.add_development_dependency "email_spec"
   s.add_development_dependency "factory_girl_rails"
-  s.add_development_dependency "rspec-rails", '~> 3.2.0'
+  s.add_development_dependency "rspec-rails", '~> 3.3.0'
   s.add_development_dependency "sqlite3"
 end
