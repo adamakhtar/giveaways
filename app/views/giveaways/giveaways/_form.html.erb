@@ -1,4 +1,4 @@
-<%= simple_form_for :giveaways, @giveaway do |f| %>
+<%= simple_form_for [giveaways, @giveaway] do |f| %>
 	
 	<%= f.input :title %>
 
@@ -12,16 +12,16 @@
 
 	<%= f.input :number_of_prizes %>
 
-	<%= f.input :thank_you_message, :input_html { value: t('giveaways.giveaways.forms.default_thank_you_message') } %>
+	<%= f.input :thank_you_message, input_html: { value: t('giveaways.giveaways.forms.default_thank_you_message') } %>
 
 	<%= f.input :email_from %>
 
 	<%= f.input :email_reply_to %>
 
-	<%= f.input :email_subject, :input_html { value: t('giveaways.giveaways.forms.default_email_subject') } %>
+	<%= f.input :email_subject, input_html: { value: t('giveaways.giveaways.forms.default_email_subject') } %>
 
-	<%= f.input :email_message, :input_html { value: t('giveaways.giveaways.forms.default_email_message') } %>
+	<%= f.input :email_message, input_html: { value: t('giveaways.giveaways.forms.default_email_message') } %>
 	
 
-	<%= f.button @giveaway.persisted? ? t('giveaways.giveaways.forms.update') : t('giveaways.giveaways.forms.create') %>
+	<%= f.button :submit, @giveaway.persisted? ? t('giveaways.giveaways.forms.update') : t('giveaways.giveaways.forms.create') %>
 <% end %>

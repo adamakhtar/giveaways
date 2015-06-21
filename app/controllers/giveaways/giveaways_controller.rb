@@ -14,6 +14,7 @@ module Giveaways
   	end
 
   	def new
+      @giveaway = Giveaway.new
   	end
 
     def create
