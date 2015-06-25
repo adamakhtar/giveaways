@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 20150619004219) do
     t.string   "confirmation_token"
     t.boolean  "confirmed_email",    default: false
     t.string   "referral_token"
-    t.integer  "ballots",            default: 0
   end
 
   add_index "giveaways_entrants", ["confirmation_token"], name: "index_giveaways_entrants_on_confirmation_token"

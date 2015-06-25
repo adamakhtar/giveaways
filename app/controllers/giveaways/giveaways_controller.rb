@@ -14,7 +14,7 @@ module Giveaways
   	end
 
   	def new
-      @giveaway = Giveaway.new
+      @giveaway = Giveaway.new(starts_at: Time.current, ends_at: 7.days.from_now)
   	end
 
     def create
