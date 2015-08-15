@@ -1,7 +1,5 @@
 require "rails_helper"
 
-include Giveaways::Engine.routes.url_helpers
-
 module Giveaways
   RSpec.describe EntrantMailer, type: :mailer do
     describe "#confirm_email" do
