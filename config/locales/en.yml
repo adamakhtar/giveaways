@@ -17,6 +17,7 @@ en:
         create: "Enter the competition"
     giveaways:
       prize: 'prize'
+      back_to_index_link: 'Back'
       new_link: 'New'
       edit_link: 'Edit'
       draw_link: 'Choose winners'
