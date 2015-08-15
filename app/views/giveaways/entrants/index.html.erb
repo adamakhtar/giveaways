@@ -1,5 +1,7 @@
 <h1>Entrants for: <%= @giveaway.title %></h1>
 
+<%= link_to t('giveaways.entrants.draw'), draw_giveaway_entrants_path(@giveaway), method: :post %>
+
 <table>
 	<thead>
 		<tr>

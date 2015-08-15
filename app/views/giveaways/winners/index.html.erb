@@ -1,0 +1,22 @@
+<h1>Winners for: <%= @giveaway.title %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Ballots</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @winners.each do |winner| %>
+      <tr>
+        <td><%= winner.first_name %></td>
+        <td><%= winner.email %></td>
+        <td><%= winner.ballots %></td>
+      </tr> 
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @winners %>

@@ -2,6 +2,10 @@
 
 <%= link_to t('giveaways.giveaways.edit_link'), giveaways.edit_giveaway_path(@giveaway) %>
 
+<%= link_to t('giveaways.giveaways.entrants_link'), giveaways.giveaway_entrants_path(@giveaway) %>
+
+<%= link_to t('giveaways.giveaways.draw_link'), giveaways.draw_giveaway_entrants_path(@giveaway) if @giveaway.closed? %>
+
 <h5 class="starts_at">Starts at: <span><%= l @giveaway.starts_at, format: :long %></span></h5>
 <h5 class="starts_at">Ends at: <span><%= l @giveaway.ends_at, format: :long %></span></h5>
 
@@ -16,3 +20,4 @@
 <%= @giveaway.email_subject %>
 
 <%= @giveaway.email_message %>
+

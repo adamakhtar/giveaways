@@ -24,6 +24,10 @@ module Giveaways
       end
     end
 
+    def self.winners
+      where(winner: true)
+    end
+
     def create_ballot
       ballots.create
     end
@@ -48,6 +52,12 @@ module Giveaways
       EntrantMailer.confirm_email(id).deliver_later
     end
 
+    def set_tokens
+      return if persisted?
+      ensure_referral_token
+      ensure_confirmation_token
+    end
+
     def register
       transaction do 
         if save
@@ -65,12 +75,6 @@ module Giveaways
         num_of_ballots.times { ballots.build }
         save
       end
-    end
-
-    def set_tokens
-      return if persisted?
-      ensure_referral_token
-      ensure_confirmation_token
     end
   end
 end

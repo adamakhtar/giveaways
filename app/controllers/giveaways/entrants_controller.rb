@@ -32,6 +32,13 @@ module Giveaways
       end
     end
 
+    def draw
+      @giveaway = load_giveaway
+      @winners  = GiveawayDraw.perform(@giveaway)
+
+      redirect_to giveaway_winners_path(@giveaway)
+    end
+
   	protected
 
     def entrant_params

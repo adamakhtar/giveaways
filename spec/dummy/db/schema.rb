@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150619004219) do
+ActiveRecord::Schema.define(version: 20150814000536) do
 
   create_table "giveaways_ballots", force: :cascade do |t|
     t.integer  "entrant_id"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20150619004219) do
     t.string   "confirmation_token"
     t.boolean  "confirmed_email",    default: false
     t.string   "referral_token"
+    t.boolean  "winner",             default: false
   end
 
   add_index "giveaways_entrants", ["confirmation_token"], name: "index_giveaways_entrants_on_confirmation_token"

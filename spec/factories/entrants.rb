@@ -12,5 +12,9 @@ FactoryGirl.define do
         entrant.ballots << create(:ballot)
       end
     end
+
+    trait :winner do
+      winner true
+    end
   end
 end
