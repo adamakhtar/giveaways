@@ -1,7 +1,13 @@
 en:
-  formats:
-    long: "%A %e %b %Y %m %M %p" 
-  giveaways:
+  date:
+    formats:
+  time:
+    formats:
+      giveaways_date:
+        "%b %-d, %Y"
+      giveaways_long:
+        "%a %B %d %Y at %H:%M"
+  giveaways:   
     entrants:
       confirmed_email: 'Congratulations. You have been entered into the giveaway.'
       not_confirmed_email: 'Sorry that link is not valid.'

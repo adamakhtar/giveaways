@@ -6,16 +6,16 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th></th>
-      <th></th>
+      <th>Starts</th>
+      <th>Ends</th>
     </tr>
   </thead>
   <tbody>
     <% @giveaways.each do |giveaway| %>
       <tr>
         <td><%= link_to giveaway.title, giveaways.giveaway_path(giveaway) %></td>
-        <td><%= giveaway.starts_at %></td>
-        <td><%= giveaway.ends_at %></td>
+        <td><%= l giveaway.starts_at, format: :giveaways_date %></td>
+        <td><%= l giveaway.ends_at, format: :giveaways_date %></td>
       </tr>
     <% end %>
   </tbody>

@@ -6,8 +6,8 @@
 
 <%= link_to t('giveaways.giveaways.draw_link'), giveaways.draw_giveaway_entrants_path(@giveaway) if @giveaway.closed? %>
 
-<h5 class="starts_at">Starts at: <span><%= l @giveaway.starts_at, format: :long %></span></h5>
-<h5 class="starts_at">Ends at: <span><%= l @giveaway.ends_at, format: :long %></span></h5>
+<h5 class="starts_at">Starts at: <span><%= l @giveaway.starts_at, format: :giveaways_long %></span></h5>
+<h5 class="starts_at">Ends at: <span><%= l @giveaway.ends_at, format: :giveaways_long %></span></h5>
 
 <%= sanitize @giveaway.description.html_safe %>
 
