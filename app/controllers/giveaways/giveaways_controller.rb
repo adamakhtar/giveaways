@@ -14,7 +14,15 @@ module Giveaways
   	end
 
   	def new
-      @giveaway = Giveaway.new(starts_at: Time.current, ends_at: 7.days.from_now)
+      @giveaway = Giveaway.new(
+        starts_at: Time.current, 
+        ends_at: 7.days.from_now,
+        ballots_per_referral: 1,
+        number_of_prizes: 1,
+        thank_you_message: t('giveaways.giveaways.forms.default_thank_you_message'),
+        email_subject:  t('giveaways.giveaways.forms.default_email_subject'),
+        email_message: t('giveaways.giveaways.forms.default_email_message'),
+      )
   	end
 
     def create

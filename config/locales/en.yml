@@ -38,7 +38,7 @@ en:
       entrants: 'Entrants'
       forms:
         default_thank_you_message: '<p>Thank you for entering. Please confirm by clicking the link we just emailed you.</p>'          
-        default_email_message: '<p>Hey there. Thanks for entering our giveaway competition. Click the link below to confirm your entry.</p><p>{{confirm_email_link}}.</p><p>Also increase your chances of winning by helping to promote the competition by sharing this link below. For every person who joins we will give you an extra {{chances_per_invite}} chances to win.</p><p>{{referral_link}}</p>'          
+        default_email_message: "Hey there. Thanks for entering our giveaway competition. Click the link below to confirm your entry.\n\n{{confirm_email_link}}\n\nAlso increase your chances of winning by helping to promote the competition by sharing this link below. For every person who joins we will give you an extra {{chances_per_invite}} chances to win.\n\n{{referral_link}}"          
         default_email_subject: 'Confirm your entry to our giveaway'          
         create: "Create this giveaway"
         update: "Update this giveaway" 

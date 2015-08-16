@@ -4,11 +4,11 @@
   <div class="row">
   
   	
-    	<%= f.input :title, input_html: { class: 'u-full-width'} %>
+    	<%= f.input :title, placeholder: 'An appealing title', input_html: { class: 'u-full-width'} %>
 
     	<%= f.input :description, input_html: { class: 'u-full-width'} %>
 
-    	<%= f.input :thank_you_message, input_html: { value: t('giveaways.giveaways.forms.default_thank_you_message'), class: 'u-full-width' } %>
+    	<%= f.input :thank_you_message, input_html: { class: 'u-full-width' } %>
 
       <hr/>
       
@@ -36,20 +36,20 @@
 
       <div class="row">
         <div class="one-half column">
-          <%= f.input :email_from, as: :string, input_html: { class: 'u-full-width'}  %>
+          <%= f.input :email_from, as: :string, placeholder: 'Your name', input_html: { class: 'u-full-width'}  %>
         </div>
 
         <div class="one-half column">
-          <%= f.input :email_reply_to, as: :email, input_html: { class: 'u-full-width'}  %>
+          <%= f.input :email_reply_to, as: :email, placeholder: 'your@email.com', input_html: { class: 'u-full-width'}  %>
         </div>
       </div>
 
-      <%= f.input :email_subject, as: :string, input_html: { value: t('giveaways.giveaways.forms.default_email_subject'), class: 'u-full-width' } %>
+      <%= f.input :email_subject, as: :string, input_html: { class: 'u-full-width' } %>
       
 
 
 
-    	<%= f.input :email_message, as: :text, input_html: { value: t('giveaways.giveaways.forms.default_email_message'), class: 'u-full-width' } %>
+    	<%= f.input :email_message, as: :text, input_html: { class: 'u-full-width' } %>
     	
     
   <div>
