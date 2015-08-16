@@ -1,27 +1,63 @@
+
 <%= simple_form_for [giveaways, @giveaway] do |f| %>
-	
-	<%= f.input :title %>
 
-	<%= f.input :description %>
+  <div class="row">
+  
+  	
+    	<%= f.input :title, input_html: { class: 'u-full-width'} %>
 
-	<%= f.input :starts_at %>
+    	<%= f.input :description, input_html: { class: 'u-full-width'} %>
 
-	<%= f.input :ends_at %>
+    	<%= f.input :thank_you_message, input_html: { value: t('giveaways.giveaways.forms.default_thank_you_message'), class: 'u-full-width' } %>
 
-	<%= f.input :ballots_per_referral %>
+      <hr/>
+      
+      <div class="row">
+        <div class="one-half column">
+          <%= f.input :ballots_per_referral, input_html: { class: 'u-full-width'} %>
+        </div>
 
-	<%= f.input :number_of_prizes %>
+        <div class="one-half column">
+          <%= f.input :number_of_prizes, input_html: { class: 'u-full-width'} %>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="one-half column">
+          <%= f.input :starts_at %>
+        </div>
 
-	<%= f.input :thank_you_message, input_html: { value: t('giveaways.giveaways.forms.default_thank_you_message') } %>
+        <div class="one-half column">
+          <%= f.input :ends_at %>
+        </div>
+      </div>
 
-	<%= f.input :email_from, as: :string %>
+      <hr/>
 
-	<%= f.input :email_reply_to, as: :email %>
+      <div class="row">
+        <div class="one-half column">
+          <%= f.input :email_from, as: :string, input_html: { class: 'u-full-width'}  %>
+        </div>
 
-	<%= f.input :email_subject, as: :string, input_html: { value: t('giveaways.giveaways.forms.default_email_subject') } %>
+        <div class="one-half column">
+          <%= f.input :email_reply_to, as: :email, input_html: { class: 'u-full-width'}  %>
+        </div>
+      </div>
 
-	<%= f.input :email_message, as: :text, input_html: { value: t('giveaways.giveaways.forms.default_email_message') } %>
-	
+      <%= f.input :email_subject, as: :string, input_html: { value: t('giveaways.giveaways.forms.default_email_subject'), class: 'u-full-width' } %>
+      
 
-	<%= f.button :submit, @giveaway.persisted? ? t('giveaways.giveaways.forms.update') : t('giveaways.giveaways.forms.create') %>
+
+
+    	<%= f.input :email_message, as: :text, input_html: { value: t('giveaways.giveaways.forms.default_email_message'), class: 'u-full-width' } %>
+    	
+    
+  <div>
+
+  <div class="row">
+  	<%= f.button :submit, @giveaway.persisted? ? t('giveaways.giveaways.forms.update') : t('giveaways.giveaways.forms.create'), class: 'button-primary' %>
+
+    <%= link_to 'Cancel', giveaways_path, class: 'button' %>
+  </div>
 <% end %>
+
