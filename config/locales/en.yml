@@ -7,17 +7,27 @@ en:
         "%b %-d, %Y"
       giveaways_long:
         "%a %B %d %Y at %H:%M"
-  giveaways:   
+  giveaways:
+    nav: 
+      giveaways: 'Giveaways' 
+    tabs:
+      main_link: 'Main'
+      entrants_link: 'Entrants'
+      winners_link: 'Winners'  
+    winners:
+      draw: 'Select winners'
+      confirm_draw: Are you sure you want to choose winners now?
+      confirm_redraw: 'Are you sure you want to reselect the winners? '
+      redraw: 'Reselect winners'
     entrants:
       confirmed_email: 'Congratulations. You have been entered into the giveaway.'
       not_confirmed_email: 'Sorry that link is not valid.'
       not_drawn: "Sorry couldn't draw any winners for the giveaway."
-      draw: 'Select winners'
+      winners_link: 'View winners'
       forms:
         create: "Enter the competition"
     giveaways:
       prize: 'prize'
-      back_to_index_link: 'Back'
       new_link: 'New'
       edit_link: 'Edit'
       draw_link: 'Choose winners'

@@ -1,24 +1,26 @@
-<h1>Entrants for: <%= @giveaway.title %></h1>
+<div class="container">
+  <h1 class="page-heading"><%= @giveaway.title %></h1>
 
-<%= link_to t('giveaways.entrants.draw'), draw_giveaway_entrants_path(@giveaway), method: :post %>
+  <%= render partial: 'shared/giveaway_tabs', locals: {giveaway: @giveaway, current_tab: 'entrants'} %>
 
-<table>
-	<thead>
-		<tr>
-			<th>Name</th>
-			<th>Email</th>
-			<th>Ballots</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @entrants.each do |entrant| %>
-			<tr>
-				<td><%= entrant.first_name %></td>
-				<td><%= entrant.email %></td>
-				<td><%= entrant.ballots %></td>
-			</tr>	
-		<% end %>
-	</tbody>
-</table>
+  <table class="entrants-list">
+  	<thead>
+  		<tr>
+  			<th>Name</th>
+  			<th>Email</th>
+  			<th>Ballots</th>
+  		</tr>
+  	</thead>
+  	<tbody>
+  		<% @entrants.each do |entrant| %>
+  			<tr>
+  				<td><%= entrant.first_name %></td>
+  				<td><%= entrant.email %></td>
+  				<td><%= entrant.ballots.count %></td>
+  			</tr>	
+  		<% end %>
+  	</tbody>
+  </table>
 
-<%= paginate @entrants %>
+  <%= paginate @entrants %>
+</div> 

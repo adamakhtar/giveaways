@@ -1,7 +1,11 @@
 <div class="container">
   <h1 class="page-heading">All Giveaways</h1>
 
-  <%= link_to t('giveaways.giveaways.new_link'), giveaways.new_giveaway_path, class: 'button' %>
+  <div class="actions">
+    <div class="actions-right">
+      <%= link_to t('giveaways.giveaways.new_link'), giveaways.new_giveaway_path, class: 'button' %>
+    </div>
+  </div>
 
   <table class="giveaways-list">
     <thead>

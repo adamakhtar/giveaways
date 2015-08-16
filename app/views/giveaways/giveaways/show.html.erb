@@ -1,18 +1,9 @@
 <div class="container">
 
-  <h1 class="page-heading"><%= @giveaway.title %><small> - <%= link_to t('giveaways.giveaways.back_to_index_link'), giveaways.giveaways_path %></small></h1>
+  <h1 class="page-heading"><%= @giveaway.title %></h1>
 
+  <%= render partial: 'shared/giveaway_tabs', locals: {giveaway: @giveaway, current_tab: 'main'} %>
 
-  <div class="row">
-    <div class="label-column">
-      <label>Entrants</label>
-    </div>
-
-    <div class="value-column">
-      <%= pluralize @giveaway.entrants.count, 'Entrant' %>
-      <%= link_to t('giveaways.giveaways.entrants_link'), giveaways.giveaway_entrants_path(@giveaway) %>
-    </div>
-  </div>
 
   <div class="row">
     <div class="label-column">
@@ -95,18 +86,9 @@
     </div>
   </div>
 
-  <div class="row">
-    
-    <div class="heading-column">
-      <div class="actions">
-        <div class="actions-left">
-          <%= link_to t('giveaways.giveaways.edit_link'), giveaways.edit_giveaway_path(@giveaway), class: 'button' %>
-        </div>
-
-        <div class="actions-right">
-          <%= link_to t('giveaways.giveaways.draw_link'), giveaways.draw_giveaway_entrants_path(@giveaway), class: 'button button-primary' if @giveaway.closed? %>
-        </div>
-      </div>      
+  <div class="actions">
+    <div class="actions-right">
+      <%= link_to t('giveaways.giveaways.edit_link'), giveaways.edit_giveaway_path(@giveaway), class: 'button' %>
     </div>
   </div>
 </div>

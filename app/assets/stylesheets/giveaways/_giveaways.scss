@@ -1,4 +1,6 @@
 .aa-giveaways {
+	padding: 0;
+	margin: 0;
 
 	form #giveaway_description {
 		height: 20em;	
@@ -10,6 +12,10 @@
 		td:nth-child(2), td:nth-child(3) {
 			width: 100px;
 		}
+	}
+
+	table.winners-list, table.entrants-list {
+		@extend .u-full-width;		
 	}
 
 
@@ -29,5 +35,57 @@
 		@extend .offset-by-three.column;
 	}
 
+	nav.nav {
+		height: 40px;
+		background-color: #eee;
+		margin-bottom: 30px;
 
+		 a {
+		 	color: #222;
+			text-decoration: none;
+			line-height: 40px;
+			font-size: 18px;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+
+
+
+	.tabs {
+		list-style: none;
+		margin: 0 -10px 30px;
+		border-bottom: 1px solid #ccc;
+
+		> li {
+			margin: 0 5px;
+			display: inline-block;
+			margin-bottom: -1px;
+
+			a {
+				display: block;
+				padding: 5px 20px;
+				text-decoration: none;
+				color: #aaa;
+
+				&:hover {
+					color: #222;
+				}
+			}
+		}
+
+		> li.active {
+			border-width: 1px 1px 0 1px;
+			border-color: #ccc;
+			border-style: solid;
+			background: #fff;
+
+			a {
+				color: #222;
+			}
+
+		}
+	}
 }

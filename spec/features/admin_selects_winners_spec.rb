@@ -10,9 +10,9 @@ feature "Admin selects winners" do
 
     click_link giveaway.title
 
-    click_link t('giveaways.giveaways.entrants_link')
+    click_link t('giveaways.tabs.winners_link')
 
-    click_link t('giveaways.entrants.draw')
+    click_button t('giveaways.winners.draw')
 
     expect(page).to have_content 'Winners'
 

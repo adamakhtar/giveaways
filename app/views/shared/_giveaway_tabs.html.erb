@@ -1,0 +1,13 @@
+<ul class="tabs">
+  <li class="<%= tab_class_for('main', current_tab) %>">
+    <%= link_to t('giveaways.tabs.main_link'), giveaways.giveaway_path(giveaway) %>
+  </li>
+
+  <li class="<%= tab_class_for('entrants', current_tab) %>">
+    <%= link_to t('giveaways.tabs.entrants_link'), giveaways.giveaway_entrants_path(giveaway) %>
+  </li>
+
+  <li class="<%= tab_class_for('winners', current_tab) %>">
+    <%= link_to t('giveaways.tabs.winners_link'),  giveaways.giveaway_winners_path(giveaway) %>
+  </li>
+</ul>  

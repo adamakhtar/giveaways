@@ -261,6 +261,12 @@ body.aa-giveaways {
 		margin-bottom: 0.5em;
 	}
 
+	.actions-left, .actions-right {
+		.button_to {
+			display: inline-block;
+		}
+	}
+
 	.actions-left {
 		float: left;
 	}

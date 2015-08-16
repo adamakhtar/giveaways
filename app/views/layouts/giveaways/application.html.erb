@@ -8,6 +8,12 @@
 </head>
 <body class="aa-giveaways aa-giveaways-<%= controller_name %>-<%= action_name %>">
 
+<nav class="nav">
+  <div class="container">
+    <%= link_to t('giveaways.nav.giveaways'), giveaways.giveaways_path %>
+  </div>
+</nav>
+
 <%= yield %>
 
 </body>
