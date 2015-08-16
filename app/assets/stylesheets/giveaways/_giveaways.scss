@@ -1,12 +1,33 @@
-form #giveaway_description {
-	height: 20em;	
-}
+.aa-giveaways {
 
-table.giveaways-list {
-	@extend .u-full-width;
-
-	td:nth-child(2), td:nth-child(3) {
-		width: 100px;
+	form #giveaway_description {
+		height: 20em;	
 	}
-}
 
+	table.giveaways-list {
+		@extend .u-full-width;
+
+		td:nth-child(2), td:nth-child(3) {
+			width: 100px;
+		}
+	}
+
+
+	.label-column {
+		@extend .three;
+		@extend .columns;
+		text-align: right;
+	}
+
+	.value-column {
+		@extend .nine;
+		@extend .columns;	
+	}
+
+	.heading-column {
+		@extend .nine;
+		@extend .offset-by-three.column;
+	}
+
+
+}

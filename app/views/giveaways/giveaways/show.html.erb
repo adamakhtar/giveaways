@@ -1,26 +1,112 @@
-<%= link_to t('giveaways.giveaways.back_to_index_link'), giveaways.giveaways_path %>
+<div class="container">
 
-<h1>Giveaway: <%= @giveaway.title %></h1>
+  <h1 class="page-heading"><%= @giveaway.title %><small> - <%= link_to t('giveaways.giveaways.back_to_index_link'), giveaways.giveaways_path %></small></h1>
 
 
-<%= link_to t('giveaways.giveaways.edit_link'), giveaways.edit_giveaway_path(@giveaway) %>
+  <div class="row">
+    <div class="label-column">
+      <label>Entrants</label>
+    </div>
 
-<%= link_to t('giveaways.giveaways.entrants_link'), giveaways.giveaway_entrants_path(@giveaway) %>
+    <div class="value-column">
+      <%= pluralize @giveaway.entrants.count, 'Entrant' %>
+      <%= link_to t('giveaways.giveaways.entrants_link'), giveaways.giveaway_entrants_path(@giveaway) %>
+    </div>
+  </div>
 
-<%= link_to t('giveaways.giveaways.draw_link'), giveaways.draw_giveaway_entrants_path(@giveaway) if @giveaway.closed? %>
+  <div class="row">
+    <div class="label-column">
+      <label>Description</label>
+    </div>
 
-<h5 class="starts_at">Starts at: <span><%= l @giveaway.starts_at, format: :giveaways_long %></span></h5>
-<h5 class="starts_at">Ends at: <span><%= l @giveaway.ends_at, format: :giveaways_long %></span></h5>
+    <div class="value-column">
+      <%= simple_format @giveaway.description.html_safe %>
+    </div>
+  </div>
 
-<%= sanitize @giveaway.description.html_safe %>
 
-<%= sanitize @giveaway.thank_you_message.html_safe %>
+  <div class="row">
+    <div class="label-column">
+      <label>Starts ~ Ends</label>
+    </div>
 
-<%= @giveaway.email_from %>
+    <div class="value-column">
+      <%= l @giveaway.starts_at, format: :giveaways_long %> ~ <%= l @giveaway.ends_at, format: :giveaways_long %>
+    </div>
+  </div>
 
-<%= @giveaway.email_reply_to %>
 
-<%= @giveaway.email_subject %>
+  <div class="row">
+    <div class="label-column">
+      <label>Thank you message</label>
+    </div>
 
-<%= @giveaway.email_message %>
+    <div class="value-column">
+      <%= simple_format @giveaway.thank_you_message.html_safe %>
+    </div>
+  </div>
 
+  <hr>
+  <div class="row">
+    <div class="heading-column">
+      <h4>Email confirmation</h4>
+    </div>
+  </div>
+
+  
+
+  <div class="row">
+    <div class="label-column">
+      <label>Subject</label>
+    </div>
+
+    <div class="value-column">
+      <%= @giveaway.email_subject %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="label-column">
+      <label>From</label>
+    </div>
+
+    <div class="value-column">
+      <%= @giveaway.email_from %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="label-column">
+      <label>Reply to</label>
+    </div>
+
+    <div class="value-column">
+      <%= @giveaway.email_reply_to %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="label-column">
+      <label>Body</label>
+    </div>
+
+    <div class="value-column">
+      <%= simple_format @giveaway.email_message %>
+    </div>
+  </div>
+
+  <div class="row">
+    
+    <div class="heading-column">
+      <div class="actions">
+        <div class="actions-left">
+          <%= link_to t('giveaways.giveaways.edit_link'), giveaways.edit_giveaway_path(@giveaway), class: 'button' %>
+        </div>
+
+        <div class="actions-right">
+          <%= link_to t('giveaways.giveaways.draw_link'), giveaways.draw_giveaway_entrants_path(@giveaway), class: 'button button-primary' if @giveaway.closed? %>
+        </div>
+      </div>      
+    </div>
+  </div>
+</div>

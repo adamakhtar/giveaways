@@ -21,7 +21,7 @@ en:
       new_link: 'New'
       edit_link: 'Edit'
       draw_link: 'Choose winners'
-      entrants_link: 'Entrants'
+      entrants_link: 'View all entrants'
       created: 'Your giveaway was created.'
       updated: 'Your giveaway was updated.'
       destroyed: 'Your giveaway was deleted.'
