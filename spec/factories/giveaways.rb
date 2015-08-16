@@ -10,5 +10,6 @@ FactoryGirl.define do
 		starts_at 1.day.from_now
 		ends_at 1.week.from_now
 		number_of_prizes 1
+    ballots_per_referral 1
   end
 end
