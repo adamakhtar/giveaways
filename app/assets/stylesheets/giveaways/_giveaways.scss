@@ -1,3 +1,12 @@
 form #giveaway_description {
 	height: 20em;	
 }
+
+table.giveaways-list {
+	@extend .u-full-width;
+
+	td:nth-child(2), td:nth-child(3) {
+		width: 100px;
+	}
+}
+
