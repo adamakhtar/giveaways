@@ -54,10 +54,15 @@
     
   <div>
 
-  <div class="row">
-  	<%= f.button :submit, @giveaway.persisted? ? t('giveaways.giveaways.forms.update') : t('giveaways.giveaways.forms.create'), class: 'button-primary' %>
+  <div class="actions">
+    <div class="actions-left">
+    	<%= link_to 'Cancel', giveaways_path, class: 'button' %>
+    </div>
 
-    <%= link_to 'Cancel', giveaways_path, class: 'button' %>
+    <div class="actions-right">
+      <%= f.button :submit, @giveaway.persisted? ? t('giveaways.giveaways.forms.update') : t('giveaways.giveaways.forms.create'), class: 'button-primary' %>
+    </div>
   </div>
 <% end %>
+
 
