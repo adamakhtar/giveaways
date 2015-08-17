@@ -5,6 +5,7 @@ feature "Admin creates a giveaway" do
     admin = create(:user, :admin)
     visit new_giveaway_path
     
+    fill_in 'Name', with: 'psp'
     fill_in 'Title', with: 'PSP Competition'
     fill_in 'Description', with: 'Get the latest tech for free.'
     fill_in 'Number of prizes', with: '1'

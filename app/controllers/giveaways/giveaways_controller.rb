@@ -66,6 +66,7 @@ module Giveaways
 
     def giveaway_attributes
       [
+        :name,
         :title, 
         :description, 
         :starts_at, 

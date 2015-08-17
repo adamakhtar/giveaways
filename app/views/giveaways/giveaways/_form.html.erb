@@ -2,7 +2,8 @@
 <%= simple_form_for [giveaways, @giveaway] do |f| %>
 
   <div class="row">
-  
+      
+      <%= f.input :name, placeholder: 'An internal use name', input_html: { class: 'u-full-width'} %>
   	
     	<%= f.input :title, placeholder: 'An appealing title', input_html: { class: 'u-full-width'} %>
 

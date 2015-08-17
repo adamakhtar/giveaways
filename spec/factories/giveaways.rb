@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :giveaway, :class => 'Giveaways::Giveaway' do
     title "Ipad Giveaway"
+    name "ipad"
 		description "Win a new ipad."
 		thank_you_message "Thank you for entering"
 		email_from "Adam"
