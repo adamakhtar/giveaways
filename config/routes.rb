@@ -6,7 +6,7 @@ Giveaways::Engine.routes.draw do
 		end
 	end
 
-  get 'enter/:giveaway_id', to: 'entrants#new', as: 'join_path'
+  get 'enter/:giveaway_id', to: 'entrants#new', as: 'entry'
 
 	get 'giveaways/:giveaway_id/confirm/:key', to: 'entrants#confirm', as: 'confirm_giveaway_entrant'
 end
