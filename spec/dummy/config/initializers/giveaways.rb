@@ -1,2 +1,2 @@
-Giveaways.public_layout = 'layouts/giveaways'
+# Giveaways.public_layout = 'layouts/giveaways'
 
