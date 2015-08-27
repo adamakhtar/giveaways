@@ -1,0 +1,99 @@
+.aa-giveaways-entrants-new, .aa-giveaways-entrants-create {
+	padding-left: 7.5px;
+	padding-right: 7.5px;
+
+	@media (min-width: 400px) {
+		padding: 15px;
+	}
+
+	background: -webkit-linear-gradient(90deg, #005C97 10%, #363795 90%); /* Chrome 10+, Saf5.1+ */
+	background:    -moz-linear-gradient(90deg, #005C97 10%, #363795 90%); /* FF3.6+ */
+	background:     -ms-linear-gradient(90deg, #005C97 10%, #363795 90%); /* IE10 */
+	background:      -o-linear-gradient(90deg, #005C97 10%, #363795 90%); /* Opera 11.10+ */
+	background:         linear-gradient(90deg, #005C97 10%, #363795 90%); /* W3C */
+    	      
+	.entry-panel {
+		margin-top: 90px;
+		border: 1px solid #ccc;
+		padding: 0px 15px;
+		border-radius: 3px;
+		background: #FBFBFB;
+
+		@media (min-width: 400px) {
+			padding: 0 30px;
+		}
+	}
+
+	.entry-panel hr {
+		margin: 0px;
+	}
+
+	.entry-title {
+		text-align: center;
+		margin: 0;
+		padding: 30px 0 30px;
+	}
+
+	.entry-meta {
+		width: 100%;
+		padding: 15px 0 15px;
+		@include clearfix;
+	}
+
+	.entry-meta-item {
+		width: 33.3333%;
+		box-sizing: border-box;
+		float: left;
+		font-size: 16px;		
+	}
+
+	.entry-meta-item:nth-child(1){
+		padding-right: 15px;
+	}
+
+	.entry-meta-item:nth-child(3) {
+		padding-left: 15px;
+	}
+
+	.entry-meta-item:nth-child(2) {
+		border-left: 1px solid #ccc;
+		border-right: 1px solid #ccc;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+
+	.entry-description {
+		padding: 30px 0 30px;
+	}
+
+	form.new_entrant {
+		padding: 30px 0 0;
+	}	
+
+	label, .label {
+		display: block;
+		text-transform: uppercase;
+		font-size: 11px;
+		letter-spacing: 3px;
+		color: #777;
+	}
+
+	form .field_with_errors input {
+		border-color: red;
+
+		&:focus {
+			border-color: red;
+		}
+	}
+
+	span.error {
+		display: block;
+		margin-top: -12px;
+		margin-bottom: 12px;
+		font-size: 12px;
+		color: red;
+
+
+	}
+}	

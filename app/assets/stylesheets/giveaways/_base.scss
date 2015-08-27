@@ -1,3 +1,9 @@
+@mixin clearfix {
+	content: "";
+	display: table;
+	clear: both; 
+}
+
 html.aa-giveaways {
   font-size: 62.5%; 
 }

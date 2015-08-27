@@ -1,23 +1,44 @@
 <% if @giveaway.in_progress? %>
+  <div class="six columns offset-by-three ">
+    <div class="entry-panel">
+      <h1 class="entry-title"><%= @giveaway.title %></h1>
 
-  <h1><%= @giveaway.title %></h1>
 
-  <h5 class="starts_at">Starts at: <span><%= l @giveaway.starts_at, format: :long %></span></h5>
-  <h5 class="starts_at">Ends at: <span><%= l @giveaway.ends_at, format: :long %></span></h5>
-  <h5 class="number_of_prizes"><%= pluralize(@giveaway.number_of_prizes, t('giveaways.giveaways.prize')) %></h5>
 
-  <%= sanitize @giveaway.description %>
+      <div class="entry-meta">
+        <div class="entry-meta-item">
+          <span class="label">Opens</span>
+          <%= l @giveaway.starts_at, format: :short %></span>
+        </div>
 
-  <%= simple_form_for [giveaways, @giveaway, @entrant] do |f| %>
+        <div class="entry-meta-item">
+          <span class="label">Closes</span>
+          <%= l @giveaway.ends_at, format: :short %></span>
+        </div>
+
+        <div class="entry-meta-item">
+          <span class="label">Prizes</span>
+          <%= pluralize(@giveaway.number_of_prizes, t('giveaways.giveaways.prize')) %>
+        </div>
+      </div>
+
       
-    <%= f.input :first_name %>
+      <div class="entry-description">
+        <%= sanitize @giveaway.description %>
+      </div>
 
-    <%= f.input :email %>
 
-    <%= f.button :submit, t('giveaways.entrants.forms.create') %>
+      <%= simple_form_for [giveaways, @giveaway, @entrant], defaults: {input_html: {class: 'u-full-width'}} do |f| %>
+        
+        <%= f.input :first_name, required: false %>
 
-  <% end %>
+        <%= f.input :email, required: false %>
 
+        <%= f.button :submit, t('giveaways.entrants.forms.create'), class: 'button-primary u-full-width' %>
+      <% end %>
+
+    </div>
+  </div>
 <% else %>
   <h1><%= @giveaway.title %></h1>
   <p>Sorry this giveaway has ended.z</p>
