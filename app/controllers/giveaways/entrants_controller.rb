@@ -5,7 +5,7 @@ module Giveaways
     
     layout :resolve_layout
 
-  	before_action :ensure_admin, only: :index
+  	before_action :ensure_admin, only: [:index, :draw]
 
   	def index
   		@giveaway = load_giveaway
