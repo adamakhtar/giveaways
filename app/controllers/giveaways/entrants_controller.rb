@@ -2,6 +2,9 @@ require_dependency "giveaways/application_controller"
 
 module Giveaways
   class EntrantsController < ApplicationController
+    
+    layout :resolve_layout
+
   	before_action :ensure_admin, only: :index
 
   	def index
@@ -65,5 +68,14 @@ module Giveaways
   	def load_giveaway
   		Giveaway.find(params[:giveaway_id])
   	end
+
+    def resolve_layout
+      case action_name
+      when 'new', 'thank_you', 'confirm'
+        Giveaways.public_layout 
+      else
+        Giveaways.admin_layout
+      end
+    end
   end
 end
