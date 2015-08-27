@@ -71,7 +71,7 @@ module Giveaways
 
     def resolve_layout
       case action_name
-      when 'new', 'thank_you', 'confirm'
+      when 'new', 'thank_you', 'confirm', 'create'
         Giveaways.public_layout 
       else
         Giveaways.admin_layout
