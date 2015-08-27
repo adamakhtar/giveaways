@@ -51,7 +51,7 @@ module Giveaways
         
           post :create, giveaway_id: 1, referral: 'abcd', entrant: attributes_for(:entrant)
 
-          expect(response).to render_template('thank_you')
+          expect(response).to be_redirect
         end
       end
 
@@ -63,7 +63,7 @@ module Giveaways
         
           post :create, giveaway_id: 1, entrant: attributes_for(:entrant)
 
-          expect(response).to render_template('thank_you')
+          expect(response).to be_redirect
         end
       end 
       

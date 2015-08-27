@@ -22,10 +22,14 @@ module Giveaways
       @entrant = EntrantRegistrar.register(@giveaway, entrant: entrant_params, referrel_token: params[:referral]) 
       
       if @entrant.valid?
-        render :thank_you
+        redirect_to thank_you_path(@giveaway)
       else
         render :new
       end
+    end
+
+    def thank_you
+      @giveaway = load_giveaway
     end
 
     def confirm

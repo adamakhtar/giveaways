@@ -8,5 +8,7 @@ Giveaways::Engine.routes.draw do
 
   get 'enter/:giveaway_id', to: 'entrants#new', as: 'entry'
 
+  get 'thank_you/:giveaway_id', to: 'entrants#thank_you', as: 'thank_you'
+
 	get 'giveaways/:giveaway_id/confirm/:key', to: 'entrants#confirm', as: 'confirm_giveaway_entrant'
 end

@@ -1,4 +1,4 @@
-.aa-giveaways-entrants-new, .aa-giveaways-entrants-create {
+.aa-giveaways-entrants-new, .aa-giveaways-entrants-create, .aa-giveaways-entrants-new, .aa-giveaways-entrants-thank_you {
 	padding-left: 7.5px;
 	padding-right: 7.5px;
 
@@ -11,6 +11,9 @@
 	background:     -ms-linear-gradient(90deg, #005C97 10%, #363795 90%); /* IE10 */
 	background:      -o-linear-gradient(90deg, #005C97 10%, #363795 90%); /* Opera 11.10+ */
 	background:         linear-gradient(90deg, #005C97 10%, #363795 90%); /* W3C */
+}
+
+.aa-giveaways-entrants-new, .aa-giveaways-entrants-create, .aa-giveaways-entrants-thank_you { 
     	      
 	.entry-panel {
 		margin-top: 90px;
@@ -93,7 +96,5 @@
 		margin-bottom: 12px;
 		font-size: 12px;
 		color: red;
-
-
 	}
-}	
+}
