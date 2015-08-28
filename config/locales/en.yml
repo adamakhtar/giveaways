@@ -20,7 +20,7 @@ en:
       confirm_redraw: 'Are you sure you want to reselect the winners? '
       redraw: 'Reselect winners'
     entrants:
-      confirmed_email: 'Congratulations. You have been entered into the giveaway.'
+      confirmed_email: 'You have been entered into the giveaway. We will email you if you win.'
       not_confirmed_email: 'Sorry that link is not valid.'
       not_drawn: "Sorry couldn't draw any winners for the giveaway."
       winners_link: 'View winners'
