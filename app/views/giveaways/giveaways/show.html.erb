@@ -12,8 +12,11 @@
 
     <div class="value-column">
       <%= simple_format @giveaway.description.html_safe %>
+      <hr/>
     </div>
   </div>
+
+
 
 
   <div class="row">
@@ -23,6 +26,7 @@
 
     <div class="value-column">
       <%= l @giveaway.starts_at, format: :giveaways_long %> ~ <%= l @giveaway.ends_at, format: :giveaways_long %>
+      <hr/>
     </div>
   </div>
 
@@ -33,6 +37,7 @@
 
     <div class="value-column">
       <%= simple_format @giveaway.rules %>
+      <hr/>
     </div>
   </div>
 
@@ -63,6 +68,7 @@
 
     <div class="value-column">
       <%= @giveaway.email_subject %>
+      <hr/>
     </div>
   </div>
 
@@ -73,6 +79,7 @@
 
     <div class="value-column">
       <%= @giveaway.email_from %>
+      <hr/>
     </div>
   </div>
 
@@ -83,6 +90,7 @@
 
     <div class="value-column">
       <%= @giveaway.email_reply_to %>
+      <hr/>
     </div>
   </div>
 
@@ -93,6 +101,7 @@
 
     <div class="value-column">
       <%= simple_format @giveaway.email_message %>
+      <hr/>
     </div>
   </div>
 
