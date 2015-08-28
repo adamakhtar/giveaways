@@ -1,0 +1,28 @@
+<div class="eight columns offset-by-two ">
+    <div class="entry-panel">
+      <h1 class="entry-title">Content Rules</h1>
+
+      <div class="entry-meta">
+        <div class="entry-meta-item">
+          <span class="label">Opens</span>
+          <%= l @giveaway.starts_at, format: :short %></span>
+        </div>
+
+        <div class="entry-meta-item">
+          <span class="label">Closes</span>
+          <%= l @giveaway.ends_at, format: :short %></span>
+        </div>
+
+        <div class="entry-meta-item">
+          <span class="label">Prizes</span>
+          <%= pluralize(@giveaway.number_of_prizes, t('giveaways.giveaways.prize')) %>
+        </div>
+      </div>
+
+      <div class="entry-description">
+        <p><%= link_to 'Back to contest', entry_path(@giveaway) %></p>
+        <%= simple_format @giveaway.rules %>
+      </div>
+    </div>
+  </div>
+</div>

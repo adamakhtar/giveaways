@@ -1,4 +1,8 @@
-.aa-giveaways-entrants-new, .aa-giveaways-entrants-create, .aa-giveaways-entrants-new, .aa-giveaways-entrants-thank_you {
+.aa-giveaways-entrants-new,
+.aa-giveaways-entrants-create,
+.aa-giveaways-entrants-new,
+.aa-giveaways-entrants-thank_you,
+.aa-giveaways-rules-show {
 	padding-left: 7.5px;
 	padding-right: 7.5px;
 
@@ -13,7 +17,10 @@
 	background:         linear-gradient(90deg, #005C97 10%, #363795 90%); /* W3C */
 }
 
-.aa-giveaways-entrants-new, .aa-giveaways-entrants-create, .aa-giveaways-entrants-thank_you { 
+.aa-giveaways-entrants-new, 
+.aa-giveaways-entrants-create, 
+.aa-giveaways-entrants-thank_you,
+.aa-giveaways-rules-show { 
     	      
 	.entry-panel {
 		margin-top: 90px;
@@ -82,12 +89,21 @@
 		color: #777;
 	}
 
+	label.boolean {
+		display: inline-block;
+		margin-left: 0.5rem;
+	}
+
 	form .field_with_errors input {
 		border-color: red;
 
 		&:focus {
 			border-color: red;
 		}
+	}
+
+	.entrant_agree_to_rules span.hint {
+		margin-left: 0.5rem;
 	}
 
 	span.error {

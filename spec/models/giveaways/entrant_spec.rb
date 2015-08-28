@@ -6,7 +6,7 @@ module Giveaways
     	entrant = Entrant.new
  			entrant.valid?
     	expect(entrant.errors).to include :email
-    	expect(entrant.errors).to include :first_name
+      expect(entrant.errors).to include :first_name
     end
 
     it "validates email address is unique for parent giveaway" do

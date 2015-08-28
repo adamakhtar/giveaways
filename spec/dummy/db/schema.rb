@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150817000627) do
+ActiveRecord::Schema.define(version: 20150828000612) do
 
   create_table "giveaways_ballots", force: :cascade do |t|
     t.integer  "entrant_id"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20150817000627) do
     t.string   "email_reply_to"
     t.integer  "ballots_per_referral"
     t.string   "name"
+    t.text     "rules"
   end
 
   add_index "giveaways_giveaways", ["name"], name: "index_giveaways_giveaways_on_name"

@@ -49,7 +49,7 @@ module Giveaways
   	protected
 
     def entrant_params
-      params.require(:entrant).permit(:email, :first_name)
+      params.require(:entrant).permit(:email, :first_name, :agree_to_rules)
     end
 
     def load_referrer_with_key

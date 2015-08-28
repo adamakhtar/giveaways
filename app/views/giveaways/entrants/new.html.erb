@@ -26,15 +26,17 @@
       </div>
 
 
-      <%= simple_form_for [giveaways, @giveaway, @entrant], defaults: {input_html: {class: 'u-full-width'}} do |f| %>
+      <%= simple_form_for [giveaways, @giveaway, @entrant] do |f| %>
         
-        <%= f.input :first_name, required: false %>
+        <%= f.input :first_name, required: false, input_html: {class: 'u-full-width'} %>
 
-        <%= f.input :email, required: false %>
+        <%= f.input :email, required: false, input_html: {class: 'u-full-width'} %>
+
+        <%= f.input :agree_to_rules, as: :boolean , required: false, hint: link_to('contest rules', giveaway_rules_path(@giveaway)) %>
 
         <%= f.button :submit, t('giveaways.entrants.forms.create'), class: 'button-primary u-full-width' %>
-      <% end %>
 
+      <% end %>
     </div>
   </div>
 <% else %>

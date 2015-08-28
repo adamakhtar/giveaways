@@ -1,5 +1,6 @@
 Giveaways::Engine.routes.draw do
 	resources :giveaways do
+    resource :rules, only: :show
     resources :winners, only: [:index]
 		resources :entrants, only: [:index, :new, :create] do
       collection { post :draw }

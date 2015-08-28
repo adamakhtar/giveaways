@@ -1,59 +1,53 @@
 
 <%= simple_form_for [giveaways, @giveaway] do |f| %>
+      
+  <%= f.input :name, placeholder: 'An internal use name', input_html: { class: 'u-full-width'} %>
+
+	<%= f.input :title, placeholder: 'An appealing title', input_html: { class: 'u-full-width'} %>
+
+	<%= f.input :description, input_html: { class: 'u-full-width'} %>
+
+  <%= f.input :rules, input_html: { class: 'u-full-width' } %>
+
+	<%= f.input :thank_you_message, input_html: { class: 'u-full-width' } %>
+
+  <hr/>
+  
+  <div class="row">
+    <div class="one-half column">
+      <%= f.input :ballots_per_referral, input_html: { class: 'u-full-width'} %>
+    </div>
+
+    <div class="one-half column">
+      <%= f.input :number_of_prizes, input_html: { class: 'u-full-width'} %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="one-half column">
+      <%= f.input :starts_at %>
+    </div>
+
+    <div class="one-half column">
+      <%= f.input :ends_at %>
+    </div>
+  </div>
+
+  <hr/>
 
   <div class="row">
-      
-      <%= f.input :name, placeholder: 'An internal use name', input_html: { class: 'u-full-width'} %>
-  	
-    	<%= f.input :title, placeholder: 'An appealing title', input_html: { class: 'u-full-width'} %>
+    <div class="one-half column">
+      <%= f.input :email_from, as: :string, placeholder: 'Your name', input_html: { class: 'u-full-width'}  %>
+    </div>
 
-    	<%= f.input :description, input_html: { class: 'u-full-width'} %>
+    <div class="one-half column">
+      <%= f.input :email_reply_to, as: :email, placeholder: 'your@email.com', input_html: { class: 'u-full-width'}  %>
+    </div>
+  </div>
 
-    	<%= f.input :thank_you_message, input_html: { class: 'u-full-width' } %>
+  <%= f.input :email_subject, as: :string, input_html: { class: 'u-full-width' } %>
 
-      <hr/>
-      
-      <div class="row">
-        <div class="one-half column">
-          <%= f.input :ballots_per_referral, input_html: { class: 'u-full-width'} %>
-        </div>
-
-        <div class="one-half column">
-          <%= f.input :number_of_prizes, input_html: { class: 'u-full-width'} %>
-        </div>
-      </div>
-      
-      <div class="row">
-        <div class="one-half column">
-          <%= f.input :starts_at %>
-        </div>
-
-        <div class="one-half column">
-          <%= f.input :ends_at %>
-        </div>
-      </div>
-
-      <hr/>
-
-      <div class="row">
-        <div class="one-half column">
-          <%= f.input :email_from, as: :string, placeholder: 'Your name', input_html: { class: 'u-full-width'}  %>
-        </div>
-
-        <div class="one-half column">
-          <%= f.input :email_reply_to, as: :email, placeholder: 'your@email.com', input_html: { class: 'u-full-width'}  %>
-        </div>
-      </div>
-
-      <%= f.input :email_subject, as: :string, input_html: { class: 'u-full-width' } %>
-      
-
-
-
-    	<%= f.input :email_message, as: :text, input_html: { class: 'u-full-width' } %>
-    	
-    
-  <div>
+	<%= f.input :email_message, as: :text, input_html: { class: 'u-full-width' } %>
 
   <div class="actions">
     <div class="actions-left">

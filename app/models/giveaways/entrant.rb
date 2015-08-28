@@ -4,6 +4,8 @@ module Giveaways
   	belongs_to :giveaway
     has_many :ballots, dependent: :destroy
 
+    validates :agree_to_rules, acceptance: true
+
   	validates :email, email: true, 
   										uniqueness: { 
   											scope: :giveaway_id, 

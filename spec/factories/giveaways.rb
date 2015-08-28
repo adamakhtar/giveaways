@@ -12,5 +12,9 @@ FactoryGirl.define do
 		ends_at 1.week.from_now
 		number_of_prizes 1
     ballots_per_referral 1
+
+    trait :open do 
+      starts_at 1.day.ago
+    end
   end
 end

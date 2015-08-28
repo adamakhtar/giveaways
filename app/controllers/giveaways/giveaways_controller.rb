@@ -78,6 +78,7 @@ module Giveaways
         :email_from,
         :email_reply_to,
         :email_message,
+        :rules
       ]
     end
 
