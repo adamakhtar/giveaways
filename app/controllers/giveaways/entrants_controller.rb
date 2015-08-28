@@ -52,14 +52,6 @@ module Giveaways
       params.require(:entrant).permit(:email, :first_name, :agree_to_rules)
     end
 
-    def load_referrer_with_key
-      if entrant 
-        yield entrant
-      else
-        render 'invalid_token'
-      end
-    end
-
     def load_entrant_with_key
       entrant = Entrant.find_by(giveaway: @giveaway, confirmation_token: params[:id], confirmed_email: false)
       if entrant 
