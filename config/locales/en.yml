@@ -10,6 +10,7 @@ en:
   giveaways:
     nav: 
       giveaways: 'Giveaways' 
+      main_app: 'Main app'
     tabs:
       main_link: 'Main'
       entrants_link: 'Entrants'
