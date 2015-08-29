@@ -28,10 +28,13 @@ en:
       forms:
         create: "Enter the competition"
     giveaways:
+      ended_notice: 'Sorry but this giveaway contest has already ended.'
       prize: 'prize'
       new_link: 'New'
       edit_link: 'Edit'
       draw_link: 'Choose winners'
+      exit_preview_link: 'Exit preview'
+      preview_link: 'Preview'
       entrants_link: 'View all entrants'
       created: 'Your giveaway was created.'
       updated: 'Your giveaway was updated.'

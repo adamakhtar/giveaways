@@ -1,4 +1,4 @@
-<% if @giveaway.in_progress? %>
+<% if @giveaway.in_progress? or preview_mode_on? %>
   <div class="six columns offset-by-three ">
     <div class="entry-panel">
       <h1 class="entry-title"><%= @giveaway.title %></h1>
@@ -40,6 +40,13 @@
     </div>
   </div>
 <% else %>
-  <h1><%= @giveaway.title %></h1>
-  <p>Sorry this giveaway has ended.z</p>
+  <div class="six columns offset-by-three ">
+    <div class="entry-panel">
+      <h1 class="entry-title"><%= @giveaway.title %></h1>
+
+      <div class="entry-description">
+        <%= t('giveaways.giveaways.ended_notice') %>
+      </div>
+    </div>
+  </div>
 <% end %>

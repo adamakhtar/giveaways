@@ -23,6 +23,16 @@
 .aa-giveaways-entrants-thank_you,
 .aa-giveaways-entrants-confirm,
 .aa-giveaways-rules-show { 
+
+	.preview-actions {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+
+		a {
+			color: #fff;
+		}
+	}
     	      
 	.entry-panel {
 		margin-top: 90px;

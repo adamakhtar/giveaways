@@ -4,6 +4,11 @@
 
   <%= render partial: 'shared/giveaway_tabs', locals: {giveaway: @giveaway, current_tab: 'main'} %>
 
+  <div class="actions">
+    <div class="actions-right">
+      <%= link_to t('giveaways.giveaways.preview_link'), entry_path(@giveaway, preview_mode: true), class: 'button' %>
+    </div>
+  </div>
 
   <div class="row">
     <div class="label-column">
@@ -15,9 +20,6 @@
       <hr/>
     </div>
   </div>
-
-
-
 
   <div class="row">
     <div class="label-column">
