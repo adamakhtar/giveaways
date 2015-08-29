@@ -1,3 +1,5 @@
 = Giveaways
 
-This project rocks and uses MIT-LICENSE.
+## Nice to have features
+
+* url shortening for easier social sharing
