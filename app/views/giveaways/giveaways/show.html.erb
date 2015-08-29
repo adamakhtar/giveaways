@@ -7,6 +7,7 @@
   <div class="actions">
     <div class="actions-right">
       <%= link_to t('giveaways.giveaways.preview_link'), entry_path(@giveaway, preview_mode: true), class: 'button' %>
+      <%= link_to t('giveaways.giveaways.edit_link'), giveaways.edit_giveaway_path(@giveaway), class: 'button' %>
     </div>
   </div>
 
@@ -115,12 +116,6 @@
     <div class="value-column">
       <%= simple_format @giveaway.email_message %>
       <hr/>
-    </div>
-  </div>
-
-  <div class="actions">
-    <div class="actions-right">
-      <%= link_to t('giveaways.giveaways.edit_link'), giveaways.edit_giveaway_path(@giveaway), class: 'button' %>
     </div>
   </div>
 </div>
