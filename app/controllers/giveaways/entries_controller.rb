@@ -12,7 +12,7 @@ module Giveaways
 
     def create
       @giveaway = load_giveaway
-      @entrant = EntrantRegistrar.register(@giveaway, entrant: entrant_params, referrel_token: params[:referral]) 
+      @entrant = EntrantRegistrar.register(@giveaway, entrant: entrant_params, referral_token: params[:referral]) 
       
       if @entrant.valid?
         redirect_to giveaway_entries_path(@giveaway)

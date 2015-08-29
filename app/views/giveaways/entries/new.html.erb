@@ -28,6 +28,8 @@
 
 
         <%= simple_form_for [giveaways, @giveaway, @entrant], url: giveaway_entries_url(@giveaway) do |f| %>
+
+          <%= hidden_field_tag :referral, params[:referral] %>
           
           <%= f.input :first_name, required: false, input_html: {class: 'u-full-width'} %>
 
