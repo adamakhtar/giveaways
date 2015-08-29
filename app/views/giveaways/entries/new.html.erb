@@ -35,9 +35,13 @@
 
           <%= f.input :email, required: false, input_html: {class: 'u-full-width'} %>
 
-          <%= f.input :agree_to_rules, as: :boolean , required: false, hint: link_to('contest rules', giveaway_rules_path(@giveaway)) %>
+          <%= f.input :agree_to_rules, as: :boolean , required: false %>
 
           <%= f.button :submit, t('giveaways.entrants.forms.create'), class: 'button-primary u-full-width' %>
+
+          <br/>
+
+          <%= link_to('contest rules', giveaway_rules_path(@giveaway)) %>
 
         <% end %>
       </div>
