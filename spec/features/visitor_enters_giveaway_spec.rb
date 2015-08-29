@@ -10,7 +10,13 @@ feature "Visitor enters giveaway" do
     check 'Agree to rules'    
     click_button I18n.t("giveaways.entrants.forms.create")
 
-    expect(current_path).to eq thank_you_path(giveaway)
+    expect(page).to have_content giveaway.thank_you_message
+
+    entrant = Giveaways::Entrant.last
+
+    visit confirmation_path(entrant.confirmation_token)
+
+    expect(page).to have_content t('giveaways.confirmations.completed_notice')
   end
 
   scenario "with invalid details" do

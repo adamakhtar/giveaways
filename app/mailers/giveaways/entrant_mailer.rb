@@ -7,7 +7,7 @@ module Giveaways
   		giveaway = entrant.giveaway
   		tags = {
   			'first_name' => entrant.first_name,
-        'confirm_email_link' => confirm_giveaway_entrant_url(giveaway, entrant.confirmation_token),
+        'confirm_email_link' => confirmation_url(entrant.confirmation_token),
         'chances_per_share' => 3,
         'referral_link' => entry_url(giveaway, referral: entrant.referral_token)
   		}

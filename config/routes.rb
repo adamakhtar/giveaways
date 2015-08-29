@@ -1,15 +1,16 @@
 Giveaways::Engine.routes.draw do
-	resources :giveaways do
+  get 'confirm/:id', to: 'confirmations#update',  as: 'confirmation'
+  get 'thank_you', to: 'confirmations#show', as: 'completed_confirmation'
+  get 'invalid', to: 'confirmations#invalid', as: 'invalid_confirmation'
+
+  resources :giveaways do
     resource :rules, only: :show
     resources :winners, only: [:index]
-		resources :entrants, only: [:index, :new, :create] do
+    resources :entrants, only: [:index] do
       collection { post :draw }
-		end
-	end
+    end
+    resource :entries, only: [:new, :create, :show]
+  end
 
-  get 'enter/:giveaway_id', to: 'entrants#new', as: 'entry'
-
-  get 'thank_you/:giveaway_id', to: 'entrants#thank_you', as: 'thank_you'
-
-	get 'giveaways/:giveaway_id/confirm/:key', to: 'entrants#confirm', as: 'confirm_giveaway_entrant'
+  get 'enter/:giveaway_id', to: 'entries#new', as: 'entry'
 end
