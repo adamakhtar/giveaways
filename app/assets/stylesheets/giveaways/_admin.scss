@@ -1,6 +1,20 @@
 .aa-giveaways {
 	padding: 0;
 	margin: 0;
+	            
+	.aa-page-column {
+		@extend .ten;
+		@extend .column;
+		@extend .offset-by-one;
+	}
+
+	.aa-page {
+		background-color: #fff;
+		min-height: 600px;
+		padding: 20px 30px;
+		border: 1px solid #eee;
+		border-radius: 3px;
+	}
 
 	form #giveaway_description {
 		height: 20em;	
@@ -89,4 +103,6 @@
 
 		}
 	}
+
+	footer { height: 160px; }
 }
