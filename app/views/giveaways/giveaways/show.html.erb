@@ -12,16 +12,27 @@
         </div>
       </div>
 
-      <div class="row">
-          <div class="label-column">
-            <label>Entry form link</label>
-          </div>
-
-          <div class="value-column">
-            <%= entry_url(@giveaway) %>
-            <hr/>
-          </div>
+      <div class="row">          
+        <div class="label-column">
+          <label>Internal name</label>
         </div>
+
+        <div class="value-column">
+          <%= @giveaway.name %>
+          <hr/>
+        </div>
+      </div>
+
+      <div class="row">          
+        <div class="label-column">
+          <label>Entry form link</label>
+        </div>
+
+        <div class="value-column">
+          <%= entry_url(@giveaway) %>
+          <hr/>
+        </div>
+      </div>
 
       <div class="row">
         <div class="label-column">
