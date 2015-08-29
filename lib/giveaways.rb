@@ -1,5 +1,5 @@
 require "giveaways/engine"
-
+require "giveaways/confirmation_email_formatter"
 require "email_validator"
 require "kaminari"
 require "simple_form"

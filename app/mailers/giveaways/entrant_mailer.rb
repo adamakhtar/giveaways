@@ -5,16 +5,17 @@ module Giveaways
   	def confirm_email(entrant_id)
   		entrant = Entrant.find(entrant_id)
   		giveaway = entrant.giveaway
-  		tags = {
-  			'first_name' => entrant.first_name,
-        'confirm_email_link' => confirmation_url(entrant.confirmation_token),
-        'chances_per_share' => 3,
-        'referral_link' => entry_url(giveaway, referral: entrant.referral_token)
-  		}
-  		body = ::Liquid::Template.parse(giveaway.email_message).render(tags)
+  	
+      body = ConfirmationEmailFormatter.format(
+        message: giveaway.email_message,
+        first_name: entrant.first_name, 
+        confirmation_path: confirmation_url(entrant.confirmation_token),
+        referral_path: entry_url(giveaway, referral: entrant.referral_token), 
+        chances_per_referral: giveaway.ballots_per_referral
+      )
 
   		mail(
-        content_type: "text/plain", 
+        content_type: "text/html", 
         to: entrant.email, 
         from: giveaway.email_from,
         reply_to: giveaway.email_reply_to,

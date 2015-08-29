@@ -47,7 +47,7 @@
 
   <%= f.input :email_subject, as: :string, input_html: { class: 'u-full-width' } %>
 
-	<%= f.input :email_message, as: :text, input_html: { class: 'u-full-width' } %>
+	<%= f.input :email_message, as: :text, input_html: { class: 'u-full-width' }, hint: "{{first_name}} {{confirm_email_link}} {{referral_link}} {{x_chances}}" %>
 
   <div class="actions">
     <div class="actions-left">

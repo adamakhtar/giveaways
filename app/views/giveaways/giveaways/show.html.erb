@@ -115,7 +115,7 @@
         </div>
 
         <div class="value-column">
-          <%= simple_format @giveaway.email_message %>
+          <%= rendered_thank_you_message(@giveaway).html_safe %>
           <hr/>
         </div>
       </div>

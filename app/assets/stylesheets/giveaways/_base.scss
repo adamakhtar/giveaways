@@ -212,6 +212,7 @@ body.aa-giveaways {
 	select {
 	  height: 38px;
 	  padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+	  margin-bottom: 0px;
 	  background-color: #fff;
 	  border: 1px solid #D1D1D1;
 	  border-radius: 4px;
@@ -259,6 +260,18 @@ body.aa-giveaways {
 	  display: inline-block;
 	  margin-left: .5rem;
 	  font-weight: normal; }
+
+	 
+	span.hint {
+		display: block;
+		font-size: 1.2rem;
+		line-height: 1.3;
+		color: #888;
+		font-style: italic;
+		margin-top: 0px;
+		margin-left: 1.5rem;
+		text-align: right;
+	}
 
 
 	.actions {
@@ -334,6 +347,10 @@ body.aa-giveaways {
 
 	/* Spacing
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
+	.input {
+	 	margin-bottom: 1.5rem;
+	 }
+
 	button,
 	.button {
 	  margin-bottom: 1rem; }
@@ -341,7 +358,7 @@ body.aa-giveaways {
 	textarea,
 	select,
 	fieldset {
-	  margin-bottom: 1.5rem; }
+	  margin-bottom: 0; }
 	pre,
 	blockquote,
 	dl,
