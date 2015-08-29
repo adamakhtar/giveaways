@@ -1,36 +1,40 @@
 <div class="container">
-  <h1 class="page-heading"><%= @giveaway.title %></h1>
+  <div class="aa-page-column">
+    <div class="aa-page">
+      <h1 class="page-heading"><%= @giveaway.title %></h1>
 
-  <%= render partial: 'shared/giveaway_tabs', locals: {giveaway: @giveaway, current_tab: 'winners'} %>
+      <%= render partial: 'shared/giveaway_tabs', locals: {giveaway: @giveaway, current_tab: 'winners'} %>
 
-  <div class="actions">
-    <div class="actions-right">
-      <% if @giveaway.winners.any? %>
-        <%= button_to t('giveaways.winners.redraw'), draw_giveaway_entrants_path(@giveaway), class: 'button button-primary', data: {confirm: t('giveaways.winners.confirm_redraw')} %>
-      <% else %>
-        <%= button_to t('giveaways.winners.draw'), draw_giveaway_entrants_path(@giveaway), class: 'button button-primary', data: {confirm: t('giveaways.winners.draw')} %>
-      <% end %>
+      <div class="actions">
+        <div class="actions-right">
+          <% if @giveaway.winners.any? %>
+            <%= button_to t('giveaways.winners.redraw'), draw_giveaway_entrants_path(@giveaway), class: 'button button-primary', data: {confirm: t('giveaways.winners.confirm_redraw')} %>
+          <% else %>
+            <%= button_to t('giveaways.winners.draw'), draw_giveaway_entrants_path(@giveaway), class: 'button button-primary', data: {confirm: t('giveaways.winners.draw')} %>
+          <% end %>
+        </div>
+      </div>
+
+      <table class="winners-list">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Ballots</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @winners.each do |winner| %>
+            <tr>
+              <td><%= winner.first_name %></td>
+              <td><%= winner.email %></td>
+              <td><%= winner.ballots.count %></td>
+            </tr> 
+          <% end %>
+        </tbody>
+      </table>
+
+      <%= paginate @winners %>
     </div>
   </div>
-
-  <table class="winners-list">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Ballots</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @winners.each do |winner| %>
-        <tr>
-          <td><%= winner.first_name %></td>
-          <td><%= winner.email %></td>
-          <td><%= winner.ballots.count %></td>
-        </tr> 
-      <% end %>
-    </tbody>
-  </table>
-
-  <%= paginate @winners %>
 </div>

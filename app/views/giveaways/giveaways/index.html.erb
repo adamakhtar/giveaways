@@ -1,28 +1,32 @@
 <div class="container">
-  <h1 class="page-heading">All Giveaways</h1>
+  <div class="aa-page-column">
+    <div class="aa-page">
+      <h1 class="page-heading">All Giveaways</h1>
 
-  <div class="actions">
-    <div class="actions-right">
-      <%= link_to t('giveaways.giveaways.new_link'), giveaways.new_giveaway_path, class: 'button' %>
+      <div class="actions">
+        <div class="actions-right">
+          <%= link_to t('giveaways.giveaways.new_link'), giveaways.new_giveaway_path, class: 'button' %>
+        </div>
+      </div>
+
+      <table class="giveaways-list">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Starts</th>
+            <th>Ends</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @giveaways.each do |giveaway| %>
+            <tr>
+              <td><%= link_to giveaway.title, giveaways.giveaway_path(giveaway) %></td>
+              <td><%= l giveaway.starts_at, format: :giveaways_date %></td>
+              <td><%= l giveaway.ends_at, format: :giveaways_date %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
-
-  <table class="giveaways-list">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Starts</th>
-        <th>Ends</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @giveaways.each do |giveaway| %>
-        <tr>
-          <td><%= link_to giveaway.title, giveaways.giveaway_path(giveaway) %></td>
-          <td><%= l giveaway.starts_at, format: :giveaways_date %></td>
-          <td><%= l giveaway.ends_at, format: :giveaways_date %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
 </div>

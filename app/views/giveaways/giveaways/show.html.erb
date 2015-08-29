@@ -1,121 +1,124 @@
 <div class="container">
+  <div class="aa-page-column">
+    <div class="aa-page">
+      <h1 class="page-heading"><%= @giveaway.title %></h1>
 
-  <h1 class="page-heading"><%= @giveaway.title %></h1>
+      <%= render partial: 'shared/giveaway_tabs', locals: {giveaway: @giveaway, current_tab: 'main'} %>
 
-  <%= render partial: 'shared/giveaway_tabs', locals: {giveaway: @giveaway, current_tab: 'main'} %>
-
-  <div class="actions">
-    <div class="actions-right">
-      <%= link_to t('giveaways.giveaways.preview_link'), entry_path(@giveaway, preview_mode: true), class: 'button' %>
-      <%= link_to t('giveaways.giveaways.edit_link'), giveaways.edit_giveaway_path(@giveaway), class: 'button' %>
-    </div>
-  </div>
-
-  <div class="row">
-      <div class="label-column">
-        <label>Entry form link</label>
+      <div class="actions">
+        <div class="actions-right">
+          <%= link_to t('giveaways.giveaways.preview_link'), entry_path(@giveaway, preview_mode: true), class: 'button' %>
+          <%= link_to t('giveaways.giveaways.edit_link'), giveaways.edit_giveaway_path(@giveaway), class: 'button' %>
+        </div>
       </div>
 
-      <div class="value-column">
-        <%= entry_url(@giveaway) %>
-        <hr/>
+      <div class="row">
+          <div class="label-column">
+            <label>Entry form link</label>
+          </div>
+
+          <div class="value-column">
+            <%= entry_url(@giveaway) %>
+            <hr/>
+          </div>
+        </div>
+
+      <div class="row">
+        <div class="label-column">
+          <label>Description</label>
+        </div>
+
+        <div class="value-column">
+          <%= simple_format @giveaway.description.html_safe %>
+          <hr/>
+        </div>
       </div>
-    </div>
 
-  <div class="row">
-    <div class="label-column">
-      <label>Description</label>
-    </div>
+      <div class="row">
+        <div class="label-column">
+          <label>Starts ~ Ends</label>
+        </div>
 
-    <div class="value-column">
-      <%= simple_format @giveaway.description.html_safe %>
-      <hr/>
-    </div>
-  </div>
+        <div class="value-column">
+          <%= l @giveaway.starts_at, format: :giveaways_long %> ~ <%= l @giveaway.ends_at, format: :giveaways_long %>
+          <hr/>
+        </div>
+      </div>
 
-  <div class="row">
-    <div class="label-column">
-      <label>Starts ~ Ends</label>
-    </div>
+      <div class="row">
+        <div class="label-column">
+          <label>Contest Rules</label>
+        </div>
 
-    <div class="value-column">
-      <%= l @giveaway.starts_at, format: :giveaways_long %> ~ <%= l @giveaway.ends_at, format: :giveaways_long %>
-      <hr/>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="label-column">
-      <label>Contest Rules</label>
-    </div>
-
-    <div class="value-column">
-      <%= simple_format @giveaway.rules %>
-      <hr/>
-    </div>
-  </div>
+        <div class="value-column">
+          <%= simple_format @giveaway.rules %>
+          <hr/>
+        </div>
+      </div>
 
 
-  <div class="row">
-    <div class="label-column">
-      <label>Thank you message</label>
-    </div>
+      <div class="row">
+        <div class="label-column">
+          <label>Thank you message</label>
+        </div>
 
-    <div class="value-column">
-      <%= simple_format @giveaway.thank_you_message.html_safe %>
-    </div>
-  </div>
+        <div class="value-column">
+          <%= simple_format @giveaway.thank_you_message.html_safe %>
+        </div>
+      </div>
 
-  <hr>
-  <div class="row">
-    <div class="heading-column">
-      <h4>Email confirmation</h4>
-    </div>
-  </div>
+      <hr>
+      <div class="row">
+        <div class="heading-column">
+          <h4>Email confirmation</h4>
+        </div>
+      </div>
 
-  
+      
 
-  <div class="row">
-    <div class="label-column">
-      <label>Subject</label>
-    </div>
+      <div class="row">
+        <div class="label-column">
+          <label>Subject</label>
+        </div>
 
-    <div class="value-column">
-      <%= @giveaway.email_subject %>
-      <hr/>
-    </div>
-  </div>
+        <div class="value-column">
+          <%= @giveaway.email_subject %>
+          <hr/>
+        </div>
+      </div>
 
-  <div class="row">
-    <div class="label-column">
-      <label>From</label>
-    </div>
+      <div class="row">
+        <div class="label-column">
+          <label>From</label>
+        </div>
 
-    <div class="value-column">
-      <%= @giveaway.email_from %>
-      <hr/>
-    </div>
-  </div>
+        <div class="value-column">
+          <%= @giveaway.email_from %>
+          <hr/>
+        </div>
+      </div>
 
-  <div class="row">
-    <div class="label-column">
-      <label>Reply to</label>
-    </div>
+      <div class="row">
+        <div class="label-column">
+          <label>Reply to</label>
+        </div>
 
-    <div class="value-column">
-      <%= @giveaway.email_reply_to %>
-      <hr/>
-    </div>
-  </div>
+        <div class="value-column">
+          <%= @giveaway.email_reply_to %>
+          <hr/>
+        </div>
+      </div>
 
-  <div class="row">
-    <div class="label-column">
-      <label>Body</label>
-    </div>
+      <div class="row">
+        <div class="label-column">
+          <label>Body</label>
+        </div>
 
-    <div class="value-column">
-      <%= simple_format @giveaway.email_message %>
-      <hr/>
+        <div class="value-column">
+          <%= simple_format @giveaway.email_message %>
+          <hr/>
+        </div>
+      </div>
     </div>
   </div>
 </div>
