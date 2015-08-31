@@ -26,6 +26,7 @@ en:
       not_confirmed_email: 'Sorry that link is not valid.'
       not_drawn: "Sorry couldn't draw any winners for the giveaway."
       winners_link: 'View winners'
+      csv_link: 'Download CSV'
       forms:
         create: "Enter the competition"
     giveaways:

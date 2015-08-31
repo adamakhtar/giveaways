@@ -1,3 +1,5 @@
+require 'csv'
+
 module Giveaways
   class Entrant < ActiveRecord::Base
 
@@ -23,6 +25,15 @@ module Giveaways
         true
       else
         false
+      end
+    end
+
+    def self.to_csv(options = {})
+      CSV.generate(options) do |csv|
+        csv << ['First name', 'Email', 'Winner']
+        find_each do |entrant|
+          csv << entrant.attributes.values_at('first_name', 'email', 'winner')
+        end
       end
     end
 

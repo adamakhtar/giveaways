@@ -8,6 +8,11 @@ module Giveaways
   	def index
   		@giveaway = load_giveaway
   		@entrants = @giveaway.entrants.page(params[:page]).per(50)
+
+      respond_to do |format|
+        format.html 
+        format.csv { send_data @entrants.to_csv }
+      end
   	end
 
     def draw

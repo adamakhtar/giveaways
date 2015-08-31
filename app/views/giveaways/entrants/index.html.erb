@@ -5,6 +5,12 @@
 
       <%= render partial: 'shared/giveaway_tabs', locals: {giveaway: @giveaway, current_tab: 'entrants'} %>
 
+      <div class="actions">
+        <div class="actions-right">
+          <%= link_to t('giveaways.entrants.csv_link'), giveaway_entrants_path(@giveaway, format: "csv"), class: 'button' %>         
+        </div>
+      </div>
+
       <table class="entrants-list">
       	<thead>
       		<tr>
