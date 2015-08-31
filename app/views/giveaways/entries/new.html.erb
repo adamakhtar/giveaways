@@ -1,6 +1,6 @@
-<div class="container">
+<div class="ga-container">
   <% if @giveaway.in_progress? or preview_mode_on? %>
-    <div class="eight columns offset-by-two">
+    <div class="entry-panel-column">
       <div class="entry-panel">
         <h1 class="entry-title"><%= @giveaway.title %></h1>
 
@@ -21,7 +21,7 @@
           </div>
         </div>
 
-        
+      
         <div class="entry-description">
           <%= sanitize @giveaway.description %>
         </div>

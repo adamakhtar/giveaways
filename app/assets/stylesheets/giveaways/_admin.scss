@@ -1,18 +1,28 @@
-.aa-giveaways {
+.ga-giveaways-admin {
 	padding: 0;
 	margin: 0;
-	            
-	.aa-page-column {
-		@extend .ten;
-		@extend .column;
-		@extend .offset-by-one;
+  		
+	background-color: #CE3953;
+      	            
+	.ga-page-column {
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+
+		@media (min-width: 750px) {
+			width: percentage(11/12);
+		}
+
+		@media (min-width: 1000px) {
+			width: percentage(10/12);
+		}
 	}
 
-	.aa-page {
+	.ga-page {
+		margin-top: 70px;
 		background-color: #fff;
 		min-height: 600px;
 		padding: 20px 30px;
-		border: 1px solid #eee;
 		border-radius: 3px;
 	}
 
@@ -20,8 +30,22 @@
 		height: 20em;	
 	}
 
+	form .row {
+		margin-left: -2%;
+		margin-right: -2%;
+	}
+
+	form .half-column {
+		box-sizing: border-box;
+		width: 50%;
+		padding-left: 2%;
+		padding-right: 2%;
+		float: left;
+	}
+
+
 	table.giveaways-list {
-		@extend .u-full-width;
+		@include fullwidth;
 
 		td:nth-child(2), td:nth-child(3) {
 			width: 100px;
@@ -29,37 +53,38 @@
 	}
 
 	table.winners-list, table.entrants-list {
-		@extend .u-full-width;		
+		@include  fullwidth;		
 	}
 
 
 	.label-column {
-		@extend .three;
-		@extend .columns;
+		width: 20%;
+		float: left;
 		text-align: right;
 	}
 
 	.value-column {
-		@extend .nine;
-		@extend .columns;	
+		width: 75%;
+		float: left;
+		margin-left: 5%;
 	}
 
 	.heading-column {
-		@extend .nine;
-		@extend .offset-by-three.column;
+		width: 70%;
+		margin-left: 25%;
 	}
 
 	nav.nav {
-		height: 40px;
-		background-color: #eee;
+		height: 70px;
+		background-color: #fff;
 		margin-bottom: 30px;
 
 		 a {
 		 	color: #222;
 			text-decoration: none;
-			line-height: 40px;
+			line-height: 70px;
 			font-size: 18px;
-			margin-right: 10px;
+			margin-right: 20px;
 
 			&:hover {
 				text-decoration: underline;

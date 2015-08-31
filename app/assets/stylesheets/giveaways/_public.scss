@@ -1,19 +1,12 @@
-.aa-giveaways-entries,
-.aa-giveaways-confirmations,
-.aa-giveaways-rules {
-	padding-left: 7.5px;
-	padding-right: 7.5px;
-
-	@media (min-width: 400px) {
-		padding: 15px;
-	}
+.ga-giveaways-entries,
+.ga-giveaways-confirmations,
+.ga-giveaways-rules {
 
 	background: -webkit-linear-gradient(90deg, #005C97 10%, #363795 90%); /* Chrome 10+, Saf5.1+ */
 	background:    -moz-linear-gradient(90deg, #005C97 10%, #363795 90%); /* FF3.6+ */
 	background:     -ms-linear-gradient(90deg, #005C97 10%, #363795 90%); /* IE10 */
 	background:      -o-linear-gradient(90deg, #005C97 10%, #363795 90%); /* Opera 11.10+ */
 	background:         linear-gradient(90deg, #005C97 10%, #363795 90%); /* W3C */
-
 
 	.preview-actions {
 		position: absolute;
@@ -24,7 +17,21 @@
 			color: #fff;
 		}
 	}
-    	      
+    	    
+	.entry-panel-column {
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+
+		@media (min-width: 750px) {
+			width: 80%;
+		}
+
+		@media (min-width: 1000px) {
+			width: 66%;
+		}
+   	}  
+
 	.entry-panel {
 		margin-top: 90px;
 		border: 1px solid #ccc;
@@ -111,7 +118,6 @@
 
 	span.error {
 		display: block;
-		margin-top: -12px;
 		margin-bottom: 12px;
 		font-size: 12px;
 		color: red;
