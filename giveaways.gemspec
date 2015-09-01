@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = Giveaways::VERSION
   s.authors     = ["robodisco"]
   s.email       = ["adamsubscribe@googlemail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Giveaways."
-  s.description = "TODO: Description of Giveaways."
+  s.homepage    = "http://github.com/robodisco/giveaways"
+  s.summary     = "Create sweepstakes."
+  s.description = "Create giveaway contests to build your email list."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
