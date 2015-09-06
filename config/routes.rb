@@ -1,4 +1,6 @@
 Giveaways::Engine.routes.draw do
+
+  root to: 'giveaways#index' 
   get 'confirm/:id', to: 'confirmations#update',  as: 'confirmation'
   get 'thank_you', to: 'confirmations#show', as: 'completed_confirmation'
   get 'invalid', to: 'confirmations#invalid', as: 'invalid_confirmation'
