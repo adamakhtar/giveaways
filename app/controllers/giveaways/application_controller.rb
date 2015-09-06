@@ -6,7 +6,7 @@ module Giveaways
     before_action :detect_preview_mode
 
     def ensure_admin
-  		redirect_to sign_in_path unless giveaway_user.can_manage_giveaways?
+  		redirect_to giveaways_unauthorized_path unless giveaway_user.can_manage_giveaways?
   	end
 
     def detect_preview_mode

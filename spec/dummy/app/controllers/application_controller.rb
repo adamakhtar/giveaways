@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   	User.first
   end
 
-  def sign_in_path
+  def giveaways_unauthorized_path
   	'/' # user_sign_in_path
   end
 end

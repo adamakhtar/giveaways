@@ -16,6 +16,23 @@ module Giveaways
         end
       end
 
+
+      def add_unauthorized_path_helper
+        unauthorized_method = %Q{
+  def giveaways_unauthorized_path
+      # return the path to redirect unauthorized users.
+      # e.g. root_path or sign_in_path etc
+  end
+  helper_method :giveaways_unauthorized_path
+
+        }
+
+        inject_into_file("#{Rails.root}/app/controllers/application_controller.rb",
+                         unauthorized_method,
+                         :after => "ActionController::Base\n")
+      end
+
+
       def determine_current_user_helper
         current_user_helper = options["current-user-helper"].presence ||
                               ask("What is the current_user helper called in your app? [current_user]").presence ||
@@ -36,7 +53,6 @@ module Giveaways
                          :after => "ActionController::Base\n")
 
       end
-
 
 
       def add_giveaways_initializer
@@ -83,6 +99,9 @@ Here's what happened:\n\n}
         output += step("Giveaway's migrations were copied over into db/migrate.\n")
         output += step("A new method called `giveaways_user` was inserted into your ApplicationController.
    This lets Giveaways know what the current user of your application is.\n")
+
+             output += step("Anoter new method called `giveaways_unauthorized_path` was inserted into your ApplicationController.
+        This lets Giveaways know where to redirect users trying to access stuff they shouldn't.\n")
         output += step("A new file was created at config/initializers/forem.rb
    This is where you put Giveaway's configuration settings.\n")
 
@@ -98,12 +117,6 @@ If you want to change where the giveaways are located, just change the \"/giveaw
         output +="Final Steps\n"
         output +="===========\n\n"
 
-        unless defined?(Devise)
-          output += %Q{- We have detected you're not using Devise (which is totally OK), so you'll need to define a "sign_in_path" method. This method should return a path which points to the sign in path for your application. You can define it in config/routes.rb file with a line like this:
-
-          get '/users/sign_in', :to => "users#sign_in"
-\n\n}
-        end
 
         output += "- Define a method to determine which users can access the Giveaways admin area.\n"
         output += %Q{ 
@@ -115,10 +128,20 @@ If you want to change where the giveaways are located, just change the \"/giveaw
             end
           end
 
-That's it. You are ready to go!
         }
 
-        output += "Thanks for using Giveaways!"
+        output += "- Add the giveaways stylesheet to your assets path.\n"
+
+        output += %Q{ 
+
+In config/intializers/assets.rb add or ammend the following line
+
+          # note extension is the post compiled extension of css
+          Rails.application.config.assets.precompile += %w( giveaways.css ) 
+
+        }
+
+        output += "That's it. For optional setup see the Readme. Thanks for using Giveaways!"
         puts output
       end
 
