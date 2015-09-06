@@ -1,6 +1,6 @@
-= Giveaways
+#Giveaways
 
-## Overview 
+##Overview 
 
 Giveaways gem allows you to create giveaway contests where entrants provide you thier email address to enter. The most common reason to run such contests is for marketing purposes such as building your email list. 
 
@@ -17,7 +17,7 @@ With this gem you can
 * randonly draw winners
 * use default stylings or roll your own
 
-## Getting setup
+##Getting setup
 
 Add the gem to your gemfile
 
@@ -26,7 +26,7 @@ Add the gem to your gemfile
 gem 'giveaways'
 ```
 
-```sh
+```
 bundle install
 
 rails g giveaways:install
@@ -63,7 +63,7 @@ end
 
 The second method `giveaways_unauthorized_path` returns the path to return to whenever a user / visitor tries to access the admin without authorization. Probably sending them to your sign in page is the best bet.
 
-## Final steps
+##Final steps
 
 There are a three extra things you will need to do that the installer couldn't:
 
@@ -78,16 +78,18 @@ class User
 		# return true if admin? or moderator?
 	end
 end
+
 **2. Add the giveaway stylesheet to your assets path**
 
 Because the gem's layouts are loading a file called 'giveaways.css' and not 'application.css'  you will need to add 'giveaways.css' to your **assets** file path. This is to prevent any of giveaways styles bleeding into your own and vice versa. 
 
 In config/intializers/assets.rb add or ammend the following line
 
-```
+```ruby
 # note extension is the post compiled extension of css
 Rails.application.config.assets.precompile += %w( giveaways.css ) 
 ```
+
 **3. Make sure you have a mailer setup**
 
 Everytime an entrant enters a content they will be emailed a confirmation link to confirm their email. This means you need to have a mailer setup.
@@ -100,7 +102,7 @@ In development you might want to add ryanb's excellent [letter_opener gem](https
 
 You are all set. Simply visit /giveaways/giveaways to get started 
 
-## Optional configuration
+##Optional configuration
 
 **Define a 'Back to app' link**
 
@@ -116,7 +118,7 @@ If you don't wan't to use the default styles or views you can roll your own.
 
 First you should get copies of the views by running 
 
-```sh
+```
 rails g giveaways:views
 ```
 
@@ -144,7 +146,7 @@ In your admin area you can also include the default nav in your custom admin lay
 ```
 
 
-## Problems? Ideas for improvements?
+##Problems? Ideas for improvements?
 
 Let me know via the issue tracker!
 
