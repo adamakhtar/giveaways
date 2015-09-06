@@ -130,6 +130,20 @@ Giveaways.admin_layout = 'layouts/application' # path to your application layout
 Giveaways.public_layout = 'layouts/another_layout'
 ```
 
+Because admin can preview contests whilst they construct them you will need to provide a link to exit the preview mode. You can simply include this partial in your public layout:
+
+```ruby
+<%= render partial: 'giveaways/shared/exit_preview' %>
+```
+
+In your admin area you can also include the default nav in your custom admin layout with this partial:
+
+
+```ruby
+<%= render partial: 'giveaways/shared/admin_nav' %>
+```
+
+
 ## Problems? Ideas for improvements?
 
 Let me know via the issue tracker!

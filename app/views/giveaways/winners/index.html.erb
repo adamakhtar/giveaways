@@ -3,7 +3,7 @@
     <div class="ga-page">
       <h1 class="page-heading"><%= @giveaway.title %></h1>
 
-      <%= render partial: 'shared/giveaway_tabs', locals: {giveaway: @giveaway, current_tab: 'winners'} %>
+      <%= render partial: 'giveaways/shared/giveaway_tabs', locals: {giveaway: @giveaway, current_tab: 'winners'} %>
 
       <div class="actions">
         <div class="actions-right">

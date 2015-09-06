@@ -8,12 +8,7 @@
   </head>
   <body class="ga-giveaways ga-giveaways-admin ga-giveaways-<%= controller_name %>-<%= action_name %>">
 
-    <nav class="nav">
-      <div class="ga-container">
-        <%= link_to t('giveaways.nav.giveaways'), giveaways.giveaways_path %>
-        <%= link_to t('giveaways.nav.main_app'), Giveaways.main_app_path %>
-      </div>
-    </nav>
+    <%= render partial: 'giveaways/shared/admin_nav' %>
 
     <%= yield %>
     

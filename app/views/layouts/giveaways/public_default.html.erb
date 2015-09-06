@@ -8,11 +8,7 @@
 </head>
 <body class="ga-giveaways ga-giveaways-<%= controller_name %> ga-giveaways-<%= controller_name %>-<%= action_name %>">
 
-  <% if preview_mode_on? %>
-    <div class="preview-actions">
-      <%= link_to t('giveaways.giveaways.exit_preview_link'), giveaways_path(preview_mode: false) %>
-    </div>
-  <% end %>
+  <%= render partial: 'giveaways/shared/exit_preview' %>
 
 	<%= yield %>
 
