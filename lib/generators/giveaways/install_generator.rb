@@ -100,8 +100,8 @@ Here's what happened:\n\n}
         output += step("A new method called `giveaways_user` was inserted into your ApplicationController.
    This lets Giveaways know what the current user of your application is.\n")
 
-             output += step("Anoter new method called `giveaways_unauthorized_path` was inserted into your ApplicationController.
-        This lets Giveaways know where to redirect users trying to access stuff they shouldn't.\n")
+             output += step("Another new method called `giveaways_unauthorized_path` was inserted into your ApplicationController.
+        This lets Giveaways know where to redirect users trying to access stuff they shouldn'tin.\n")
         output += step("A new file was created at config/initializers/forem.rb
    This is where you put Giveaway's configuration settings.\n")
 

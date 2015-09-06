@@ -46,15 +46,22 @@ Rails.application.routes.draw do
  end
 ```
 
-The installer also adds an empty `giveaway_user` method in your application controller. It a way for the gem to get hold of your app's current user. Simply provide the code in the method to return that user. If you are using devise you can simply return current_user. 
+The installer also adds an empty `giveaways_user` method in your application controller. It a way for the gem to get hold of your app's current user. Simply provide the code in the method to return that user. If you are using devise you can simply return current_user. 
 
 ```ruby
 class AplicationController 
-	def giveaway_user
+	def giveaways_user
 	   current_user # or whatever method you use to return authenticated users
 	end
+
+    def giveaways_unauthorized_path
+        # return the path to redirect unauthorized users.
+        # e.g. root_path or sign_in_path etc
+    end
 end
 ```
+
+The second method `giveaways_unauthorized_path` returns the path to return to whenever a user / visitor tries to access the admin without authorization. Probably sending them to your sign in page is the best bet.
 
 ## Final steps
 
@@ -71,21 +78,7 @@ class User
 		# return true if admin? or moderator?
 	end
 end
-
-**2. Provide a path to redirect unauthorized users to**
-
-If you are using Devise you can skip this. 
-
-If not then you need to define in your routes file a path to your sign in action. This is where this gem will redirect any unauthorized access attempts to. 
-
-E.g. in your routes file
-
-```ruby
-# config/routes.rb
-get '/users/sign_in', :to => "users#sign_in"
-```
-
-**3. Add the giveaway stylesheet to your assets path**
+**2. Add the giveaway stylesheet to your assets path**
 
 Because the gem's layouts are loading a file called 'giveaways.css' and not 'application.css'  you will need to add 'giveaways.css' to your **assets** file path. This is to prevent any of giveaways styles bleeding into your own and vice versa. 
 
@@ -95,7 +88,7 @@ In config/intializers/assets.rb add or ammend the following line
 # note extension is the post compiled extension of css
 Rails.application.config.assets.precompile += %w( giveaways.css ) 
 ```
-**4. Make sure you have a mailer setup**
+**3. Make sure you have a mailer setup**
 
 Everytime an entrant enters a content they will be emailed a confirmation link to confirm their email. This means you need to have a mailer setup.
 
