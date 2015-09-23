@@ -1,5 +1,7 @@
 # Giveaways
 
+![giveaways gem](https://dl.dropboxusercontent.com/u/4298391/images_for_github_readme_files/giveaways.png)
+
 ## Overview 
 
 Giveaways gem allows you to create giveaway contests where entrants provide you thier email address to enter. The most common reason to run such contests is for marketing purposes such as building your email list. 
