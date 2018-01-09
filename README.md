@@ -1,3 +1,5 @@
+NOTE: I never got round to using this in production but it should be ready but will require some testing on your part. 
+
 # Giveaways
 
 ![giveaways gem](https://dl.dropboxusercontent.com/u/4298391/images_for_github_readme_files/giveaways.png)
